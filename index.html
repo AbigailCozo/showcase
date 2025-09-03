@@ -115,6 +115,44 @@
     @media (max-width: 640px){
       .cols-3,.cols-2{ grid-template-columns:1fr }
     }
+    /* ===== Lebenslauf Timeline ===== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+  border-left: 2px solid var(--line);
+  padding-left: 24px;
+}
+.entry {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.year {
+  font-weight: 600;
+  color: var(--ink-dim);
+}
+.details h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.details p {
+  margin: 0;
+  color: var(--ink-dim);
+}
+
   </style>
 </head>
 <body>
@@ -233,6 +271,72 @@
       </div>
     </div>
   </section>
+<section id="lebenslauf">
+  <div class="container">
+    <div class="section-head">
+      <h2 data-de="Lebenslauf" data-en="Curriculum Vitae">Lebenslauf</h2>
+      <p class="sub" data-de="Ein Überblick über meine Ausbildung und Erfahrung"
+                     data-en="An overview of my education and experience">
+        Ein Überblick über meine Ausbildung und Erfahrung
+      </p>
+    </div>
+
+    <div class="timeline">
+      <!-- Beispiel-Einträge -->
+      <div class="entry reveal">
+        <div class="year">2023 – heute</div>
+        <div class="details">
+          <h3 data-de="Studium Media Conception & Production"
+              data-en="Media Conception & Production Studies">
+            Studium Media Conception & Production
+          </h3>
+          <p data-de="Hochschule RheinMain, Wiesbaden"
+             data-en="University of Applied Sciences, Wiesbaden">
+            Hochschule RheinMain, Wiesbaden
+          </p>
+        </div>
+      </div>
+
+      <div class="entry reveal">
+        <div class="year">2021 – 2023</div>
+        <div class="details">
+          <h3 data-de="Werkstudentin in Medienproduktion"
+              data-en="Working Student in Media Production">
+            Werkstudentin in Medienproduktion
+          </h3>
+          <p data-de="Unternehmen XY, Frankfurt"
+             data-en="Company XY, Frankfurt">
+            Unternehmen XY, Frankfurt
+          </p>
+        </div>
+      </div>
+
+      <div class="entry reveal">
+        <div class="year">2018 – 2021</div>
+        <div class="details">
+          <h3 data-de="Ausbildung / Praktische Erfahrung"
+              data-en="Training / Practical Experience">
+            Ausbildung / Praktische Erfahrung
+          </h3>
+          <p data-de="Filmprojekte, Regieassistenz, Eventproduktion"
+             data-en="Film projects, Assistant Director, Event Production">
+            Filmprojekte, Regieassistenz, Eventproduktion
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;">
+      <!-- PDF-Link zu deinem Lebenslauf -->
+      <a href="assets/lebenslauf.pdf" target="_blank" rel="noopener"
+         class="btn"
+         data-de="Lebenslauf als PDF öffnen"
+         data-en="Open CV as PDF">
+        Lebenslauf als PDF öffnen
+      </a>
+    </div>
+  </div>
+</section>
 
   <!-- ===== Kontakt ===== -->
   <section id="kontakt">
