@@ -9,10 +9,12 @@
     content="Helles, minimalistisch-apple-inspiriertes Portfolio mit eleganten Übergängen und Sprachumschaltung (DE/EN)." />
   <meta name="color-scheme" content="light only" />
   <link rel="stylesheet" href="assets/styles/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script async src="https://www.instagram.com/embed.js"></script>
   <script src="assets/scripts/scripts.js" defer></script>
   <script src="assets/scripts/lang-switcher.js" defer></script>
   <script type="module" src="assets/scripts/pdf-viewer.js"></script>
+  <script src="assets/scripts/email.js"></script>
   <!--
     Apple‑inspiriertes Design:
     – viel Weißraum, fein abgestufte Grautöne (#f5f5f7, #e5e5ea)
@@ -26,13 +28,16 @@
   <!-- ===== Header ===== -->
   <header>
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="Startseite">
+      <a class="brand" href="/" aria-label="Startseite">
         <img src="assets/icons/logo_ae.svg" alt="logo" height="80" width="80" />
         <span data-de="Through Abbys Eyes" data-en="Through Abbys Eyes">Seitenname</span>
       </a>
       <nav class="menu" aria-label="Hauptnavigation">
-        <a href="#about" data-de="Über mich" data-en="About">Über mich</a>
+        <a href="#top" data-de="Über mich" data-en="About">Über mich</a>
         <a href="#projekte" data-de="Projekte" data-en="Projects">Projekte</a>
+        <a href="#instagram" data-de="Instagram" data-en="Instagram">Projekte</a>
+        <a href="#kenntnisse" data-de="Kenntnisse" data-en="Skills">Kenntnisse</a>
+        <a href="#cv" data-de="Lebenslauf" data-en="Curriculum Vitae">Lebenslauf</a>
         <a href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
         <select id="lang" class="lang-select" aria-label="Sprache wählen">
           <option value="de">Deutsch</option>
@@ -53,13 +58,21 @@
           <span class="imsg-loud-soft play"><span class="wave-emoji">👋</span>Hi,</span> ich bin Abigail Cozo.
         </h1>
 
-        <p data-de="Ich bin Abigail Cozo, Studentin im Studiengang Media: Conception & Production (B.A.). Meine Leidenschaft gilt dem 
-                      cinematic Look – ich gestalte visuelles Storytelling, das filmisch wirkt, und begleite Projekte von der ersten Idee bis zum finalen Schnitt."
-          data-en="I’m Abigail Cozo, Media: Conception & Production student with a strong passion for the cinematic look. I design visual storytelling that feels 
-                    filmic and guide projects seamlessly from the first idea to the final cut.">
-          Ich bin Abigail Cozo, Studentin im Studiengang Media: Conception & Production (B.A.). Meine Leidenschaft gilt
-          dem cinematic Look – ich gestalte visuelles Storytelling, das filmisch wirkt,
-          und begleite Projekte von der ersten Idee bis zum finalen Schnitt.
+        <p data-de="Ich studiere Media: Conception & Production (B.A.) an der Hochschule RheinMain und habe eine Leidenschaft für Storytelling, 
+        visuelles Design und die Gestaltung fesselnder Medienerlebnisse – vom Konzept bis zur finalen Produktion.
+        Bevor ich ins Medienfeld gewechselt bin, habe ich eine Ausbildung zur Industriekauffrau abgeschlossen, die mir ein solides Fundament in 
+        Geschäftsprozessen und Teamarbeit vermittelt hat. Neben dem Studium widme ich mich gerne der Portraitfotografie und dem Tanzen. 📸"
+          data-en="I'm a media student at RheinMain University of Applied Sciences and passionate about storytelling, visual design, and creating 
+          engaging media experiences—from concept to final production.
+          Before switching to media, I completed an apprenticeship as an Industrial Clerk, which gave me a solid foundation in business processes 
+          and teamwork. Outside of university, I enjoy portrait photography and dancing. 📸">
+          Ich studiere Media: Conception & Production (B.A.) an der Hochschule RheinMain und habe eine Leidenschaft für
+          Storytelling,
+          visuelles Design und die Gestaltung fesselnder Medienerlebnisse – vom Konzept bis zur finalen Produktion.
+          Bevor ich ins Medienfeld gewechselt bin, habe ich eine Ausbildung zur Industriekauffrau abgeschlossen, die mir
+          ein solides Fundament in
+          Geschäftsprozessen und Teamarbeit vermittelt hat. Neben dem Studium widme ich mich gerne der
+          Portraitfotografie und dem Tanzen. 📸
         </p>
         <div class="cta">
           <a class="btn primary" href="#projekte" data-de="Arbeiten ansehen" data-en="View work">Arbeiten ansehen</a>
@@ -76,11 +89,7 @@
   <section id="projekte">
     <div class="container">
       <div class="section-head">
-        <h2 data-de="Ausgewählte Projekte" data-en="Selected Projects">Ausgewählte Projekte</h2>
-        <p class="sub" data-de="3–6 Highlights mit kurzer Beschreibung"
-          data-en="3–6 highlights with a short description">
-          3–6 Highlights mit kurzer Beschreibung
-        </p>
+        <h2 data-de="Projekte" data-en="Projects">Projekte</h2>
       </div>
 
       <div class="grid cols-3">
@@ -236,9 +245,6 @@
     <div class="container">
       <div class="section-head">
         <h2 data-de="Instagram" data-en="Instagram">Instagram</h2>
-        <p class="sub" data-de="Aktuelle Beiträge in einem Masonry-Grid" data-en="Recent posts in a masonry grid">
-          Aktuelle Beiträge in einem Masonry-Grid
-        </p>
       </div>
 
       <div class="insta-card reveal">
@@ -301,88 +307,265 @@
   </section>
 
 
-  <!-- ===== Über mich ===== -->
-  <section id="about">
+  <!-- ===== Kenntnisse ===== -->
+  <section id="kenntnisse">
     <div class="container">
       <div class="section-head">
-        <h2 data-de="Über mich" data-en="About me">Über mich</h2>
-        <p class="sub" data-de="Kurz & präzise" data-en="Short & precise">Kurz & präzise</p>
+        <h2 data-de="Kenntnisse" data-en="Skills">Kenntnisse</h2>
       </div>
-      <div class="about">
-        <div class="bubble reveal">
-          <p data-de="Ich bin Abigail Cozo, Studentin im Studiengang Media: Conception & Production (B.A.). Meine Leidenschaft gilt dem 
-                      cinematic Look – ich gestalte visuelles Storytelling, das filmisch wirkt, und begleite Projekte von der ersten Idee bis zum finalen Schnitt."
-            data-en="I’m Abigail Cozo, Media: Conception & Production student with a strong passion for the cinematic look. I design visual storytelling that feels 
-                    filmic and guide projects seamlessly from the first idea to the final cut.">
-            Ich bin Abigail Cozo, Studentin im Studiengang Media: Conception & Production (B.A.). Meine Leidenschaft
-            gilt dem cinematic Look – ich gestalte visuelles Storytelling, das filmisch wirkt,
-            und begleite Projekte von der ersten Idee bis zum finalen Schnitt.
-          </p>
-          <p data-de="Fokus: Kurzfilm, Brand Content, Musik & Event. Offen für Kollabs in Frankfurt/Rhein‑Main & remote."
-            data-en="Focus: short film, brand content, music & events. Open to collaborations in Frankfurt/Rhine‑Main & remote.">
-            Fokus: Kurzfilm, Brand Content, Musik & Event. Offen für Kollabs in Frankfurt/Rhein‑Main & remote.</p>
+
+      <div class="skills-grid">
+        <!-- LINKE SPALTE (enger Abstand dank .skills-col-left) -->
+        <div class="skills-col-left">
+          <div class="skill-group reveal">
+            <h3 data-de="Tools & Software" data-en="Tools & Software">Tools & Software</h3>
+            <ul class="tags">
+              <li data-de="Adobe Creative Cloud" data-en="Adobe Creative Cloud">Adobe Creative Cloud</li>
+              <li data-de="Microsoft 365" data-en="Microsoft 365">Microsoft 365</li>
+              <li data-de="Canva" data-en="Canva">Canva</li>
+              <li data-de="Notion" data-en="Notion">Notion</li>
+              <li data-de="Filmora" data-en="Filmora">Filmora</li>
+              <li data-de="Blender" data-en="Blender">Blender</li>
+              <li data-de="SAP" data-en="SAP">SAP</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 data-de="Web & CMS" data-en="Web & CMS">Web & CMS</h3>
+            <ul class="tags">
+              <li data-de="WordPress (Elementor)" data-en="WordPress (Elementor)">WordPress (Elementor)</li>
+              <li data-de="SEO" data-en="SEO">SEO</li>
+              <li data-de="Social Media Marketing" data-en="Social Media Marketing">Social Media Marketing</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 data-de="Schwerpunkte" data-en="Focus Areas">Schwerpunkte</h3>
+            <ul class="tags">
+              <li data-de="Konzeption & Storytelling" data-en="Concept & Storytelling">Konzeption & Storytelling</li>
+              <li data-de="Medienproduktion" data-en="Media Production">Medienproduktion</li>
+              <li data-de="Videografie" data-en="Videography">Videografie</li>
+              <li data-de="Fotografie" data-en="Photography">Fotografie</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 data-de="Zertifikate" data-en="Certifications">Zertifikate</h3>
+            <ul class="tags">
+              <li data-de="Grundlagen der User Experience: UX Writing & Microcopy"
+                data-en="Foundations of User Experience: UX Writing & Microcopy">
+                Grundlagen der User Experience: UX Writing & Microcopy
+              </li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 data-de="Hobbys" data-en="Hobbies">Hobbys</h3>
+            <ul class="tags">
+              <li data-de="Fotografie" data-en="Photography">Fotografie</li>
+              <li data-de="Tanz" data-en="Dance">Tanz</li>
+              <li data-de="Musikinstrumente spielen" data-en="Playing musical instruments">Musikinstrumente spielen</li>
+              <li data-de="Bücher lesen" data-en="Reading books">Bücher lesen</li>
+            </ul>
+          </div>
         </div>
-        <div class="bubble reveal">
-          <ul style="margin:0; padding-left:18px">
-            <li data-de="Konzeptentwicklung" data-en="Concept Development">Konzeptentwicklung</li>
-            <li data-de="Regie & Kamera" data-en="Direction & Camera">Regie & Kamera</li>
-            <li data-de="Schnitt & Color" data-en="Editing & Color">Schnitt & Color</li>
-            <li data-de="DaVinci Resolve, Premiere Pro, After Effects"
-              data-en="DaVinci Resolve, Premiere Pro, After Effects">DaVinci Resolve, Premiere Pro, After Effects</li>
-          </ul>
+
+        <!-- RECHTE SPALTE -->
+        <div class="skills-col-right">
+          <div class="skill-group reveal">
+            <h3 data-de="Sprachen" data-en="Languages">Sprachen</h3>
+            <ul class="lang-list">
+              <li><span data-de="Deutsch" data-en="German">Deutsch</span>
+                <span class="level" data-de="Muttersprache" data-en="Native/Bilingual">Muttersprache</span>
+              </li>
+              <li><span data-de="Englisch" data-en="English">Englisch</span>
+                <span class="level" data-de="Beruflich fließend" data-en="Professional Working">Beruflich
+                  fließend</span>
+              </li>
+              <li><span data-de="Französisch" data-en="French">Französisch</span>
+                <span class="level" data-de="Grundkenntnisse" data-en="Elementary">Grundkenntnisse</span>
+              </li>
+              <li><span data-de="Chinesisch" data-en="Chinese">Chinesisch</span>
+                <span class="level" data-de="Grundkenntnisse" data-en="Elementary">Grundkenntnisse</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 data-de="Ehrenamtliches Engagement" data-en="Volunteering">Ehrenamtliches Engagement</h3>
+            <div class="timeline">
+              <div class="entry">
+                <div class="year">04/2025 – heute</div>
+                <div class="details">
+                  <h4 data-de="Buddy für Incoming Students" data-en="Buddy for Incoming Students">Buddy für Incoming
+                    Students</h4>
+                  <p data-de="Hochschule RheinMain, Wiesbaden"
+                    data-en="RheinMain University of Applied Sciences, Wiesbaden">
+                    Hochschule RheinMain, Wiesbaden
+                  </p>
+                </div>
+              </div>
+              <div class="entry">
+                <div class="year">05/2025</div>
+                <div class="details">
+                  <h4 data-de="Ehrenamtlicher Mitarbeiter" data-en="Volunteer Crew Member">Ehrenamtlicher Mitarbeiter
+                  </h4>
+                  <p data-de="Nippon Connection – Japanisches Filmfestival, Frankfurt am Main"
+                    data-en="Nippon Connection – Japanese Film Festival, Frankfurt am Main">
+                    Nippon Connection – Japanisches Filmfestival, Frankfurt am Main
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- /RECHTE SPALTE -->
+
       </div>
     </div>
   </section>
-  <section id="lebenslauf">
+
+
+
+
+
+
+  <!-- ===== Lebenslauf ===== -->
+  <section id="cv">
     <div class="container">
       <div class="section-head">
         <h2 data-de="Lebenslauf" data-en="Curriculum Vitae">Lebenslauf</h2>
-        <p class="sub" data-de="Ein Überblick über meine Ausbildung und Erfahrung"
-          data-en="An overview of my education and experience">
-          Ein Überblick über meine Ausbildung und Erfahrung
-        </p>
       </div>
 
-      <div class="timeline">
-        <!-- Beispiel-Einträge -->
-        <div class="entry reveal">
-          <div class="year">2023 – heute</div>
-          <div class="details">
-            <h3 data-de="Studium Media Conception & Production" data-en="Media Conception & Production Studies">
-              Studium Media Conception & Production
-            </h3>
-            <p data-de="Hochschule RheinMain, Wiesbaden" data-en="University of Applied Sciences, Wiesbaden">
-              Hochschule RheinMain, Wiesbaden
-            </p>
+      <div class="lebenslauf-grid">
+        <!-- Beruflicher Werdegang (linke Spalte) -->
+        <div>
+          <h3 data-de="Beruflicher Werdegang" data-en="Professional Experience">Beruflicher Werdegang</h3>
+          <div class="timeline">
+            <div class="entry reveal">
+              <div class="year">09/2024 – 03/2025</div>
+              <div class="details">
+                <h4 data-de="Praktikum in Medienproduktion" data-en="Internship in Media Production">Praktikum in
+                  Medienproduktion</h4>
+                <p data-de="Verklickern GmbH" data-en="Verklickern GmbH">Verklickern GmbH</p>
+              </div>
+            </div>
+
+            <div class="entry reveal">
+              <div class="year">09/2021 – 01/2024</div>
+              <div class="details">
+                <h4 data-de="Ausbildung Industriekauffrau" data-en="Industrial Clerk Apprenticeship">Ausbildung
+                  Industriekauffrau</h4>
+                <p data-de="Schenck Process Europe GmbH, Darmstadt" data-en="Schenck Process Europe GmbH, Darmstadt">
+                  Schenck Process Europe GmbH, Darmstadt</p>
+              </div>
+            </div>
+
+            <div class="entry reveal">
+              <div class="year">04/2019 – 05/2019</div>
+              <div class="details">
+                <h4 data-de="Straßenlabor-Assistentin (Road Engineering)" data-en="Lab Assistant Road Engineering">
+                  Straßenlabor-Assistentin (Road Engineering)</h4>
+                <p data-de="Higgins, Auckland, Neuseeland" data-en="Higgins, Auckland, New Zealand">Higgins, Auckland,
+                  Neuseeland</p>
+              </div>
+            </div>
+
+            <div class="entry reveal">
+              <div class="year">10/2016 – 12/2018</div>
+              <div class="details">
+                <h4 data-de="Ausbildung zur Gesundheits- und Krankenpflegerin" data-en="Student Nurse">Ausbildung zur
+                  Gesundheits- und Krankenpflegerin</h4>
+                <p data-de="Klinikum Ludwigshafen am Rhein" data-en="Hospital Ludwigshafen am Rhein">Klinikum
+                  Ludwigshafen am Rhein</p>
+              </div>
+            </div>
+
+            <div class="entry reveal">
+              <div class="year">11/2015 – 09/2016</div>
+              <div class="details">
+                <h4 data-de="Assistent Kultursommer Südhessen e.V." data-en="Assistant, Kultursommer Südhessen e.V.">
+                  Assistent Kultursommer Südhessen e.V.</h4>
+                <p data-de="Regierungspräsidium Darmstadt" data-en="Regierungspräsidium Darmstadt">Regierungspräsidium
+                  Darmstadt</p>
+              </div>
+            </div>
+
+            <div class="entry reveal">
+              <div class="year">01/2011 – 02/2011</div>
+              <div class="details">
+                <h4 data-de="Praktikum HR/PR" data-en="Internship HR/PR">Praktikum HR/PR</h4>
+                <p data-de="Merck Group, Darmstadt" data-en="Merck Group, Darmstadt">Merck Group, Darmstadt</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="entry reveal">
-          <div class="year">2021 – 2023</div>
-          <div class="details">
-            <h3 data-de="Werkstudentin in Medienproduktion" data-en="Working Student in Media Production">
-              Werkstudentin in Medienproduktion
-            </h3>
-            <p data-de="Unternehmen XY, Frankfurt" data-en="Company XY, Frankfurt">
-              Unternehmen XY, Frankfurt
-            </p>
-          </div>
-        </div>
+        <!-- Schulische Laufbahn (rechte Spalte) -->
+        <div>
+          <h3 data-de="Schulische Laufbahn" data-en="Education">Schulische Laufbahn</h3>
+          <div class="timeline">
+            <div class="entry reveal">
+              <div class="year">04/2024 – ca. 09/2027</div>
+              <div class="details">
+                <h4 data-de="B.A. Media: Conception & Production" data-en="B.A. Media: Conception & Production">B.A.
+                  Media: Conception & Production</h4>
+                <p data-de="Hochschule RheinMain, Wiesbaden"
+                  data-en="RheinMain University of Applied Sciences, Wiesbaden">Hochschule RheinMain, Wiesbaden</p>
+              </div>
+            </div>
 
-        <div class="entry reveal">
-          <div class="year">2018 – 2021</div>
-          <div class="details">
-            <h3 data-de="Ausbildung / Praktische Erfahrung" data-en="Training / Practical Experience">
-              Ausbildung / Praktische Erfahrung
-            </h3>
-            <p data-de="Filmprojekte, Regieassistenz, Eventproduktion"
-              data-en="Film projects, Assistant Director, Event Production">
-              Filmprojekte, Regieassistenz, Eventproduktion
-            </p>
+            <div class="entry reveal">
+              <div class="year">10/2022 – 11/2022</div>
+              <div class="details">
+                <h4 data-de="Diploma Kaufmann International (AHK)" data-en="Diploma Kaufmann International (AHK)">
+                  Diploma Kaufmann International (AHK)</h4>
+                <p data-de="Dublin Business School, Irland" data-en="Dublin Business School, Ireland">Dublin Business
+                  School, Irland</p>
+              </div>
+            </div>
+
+            <div class="entry reveal">
+              <div class="year">09/2021 – 01/2024</div>
+              <div class="details">
+                <h4 data-de="Industriekauffrau (IHK)" data-en="Industrial Clerk (IHK)">Industriekauffrau (IHK)</h4>
+                <p data-de="Martin-Behaim-Schule Darmstadt" data-en="Martin-Behaim-School, Darmstadt">
+                  Martin-Behaim-Schule Darmstadt</p>
+              </div>
+            </div>
+
+            <div class="entry reveal">
+              <div class="year">04/2021 – 08/2021</div>
+              <div class="details">
+                <h4 data-de="B.A. Soziale Arbeit (Exmatrikulation)" data-en="B.A. Social Work (Exmatriculation)">B.A.
+                  Soziale Arbeit (Exmatrikulation)</h4>
+                <p data-de="HS RheinMain" data-en="RheinMain University">HS RheinMain</p>
+              </div>
+            </div>
+
+            <div class="entry reveal">
+              <div class="year">04/2020 – 03/2021</div>
+              <div class="details">
+                <h4 data-de="B.Sc. Architektur (Studiengangswechsel)" data-en="B.Sc. Architecture (Change of course)">
+                  B.Sc. Architektur (Studiengangswechsel)</h4>
+                <p data-de="HS RheinMain" data-en="RheinMain University">HS RheinMain</p>
+              </div>
+            </div>
+
+            <div class="entry reveal">
+              <div class="year">10/2019 – 03/2020</div>
+              <div class="details">
+                <h4 data-de="B.Eng. Interdisziplinäre Ingenieurswissenschaften (Studiengangswechsel)"
+                  data-en="B.Eng. Interdisciplinary Engineering Sciences (Change of course)">B.Eng. Interdisziplinäre
+                  Ingenieurswissenschaften (Studiengangswechsel)</h4>
+                <p data-de="HS RheinMain" data-en="RheinMain University">HS RheinMain</p>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- Ende rechte Spalte -->
       </div>
+    </div>
   </section>
 
   <!-- ===== Kontakt ===== -->
@@ -390,33 +573,55 @@
     <div class="container">
       <div class="section-head">
         <h2 data-de="Kontakt" data-en="Contact">Kontakt</h2>
-        <p class="sub" data-de="Lass uns über dein Projekt sprechen" data-en="Let's talk about your project">Lass uns
-          über dein Projekt sprechen</p>
       </div>
-      <div class="grid cols-2">
-        <div class="bubble reveal">
-          <p><strong>Email:</strong> <a href="mailto:abigail.cozo@gmx.de">abigail.cozo@gmx.de</a></p>
-          <p><strong>Instagram:</strong> <a href="https://instagram.com/aebbys.eye/" target="_blank"
-              rel="noopener">@aebbys.eye</a></p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/abigail-cozo/" target="_blank"
-              rel="noopener">/in/abigail-cozo</a></p>
+
+      <form id="contact-form" class="bubble contact-form reveal" novalidate>
+        <div class="row">
+          <label for="cf-name" data-de="Name" data-en="Name">Name</label>
+          <input id="cf-name" name="name" type="text" required data-ph-de="Dein Name" data-ph-en="Your name"
+            placeholder="Dein Name">
         </div>
-        <div class="bubble reveal">
-          <p data-de="Optional: kurzer Satz zur Art der Zusammenarbeit, Verfügbarkeit oder Sprachen."
-            data-en="Optional: short note on collaboration, availability or languages.">Optional: kurzer Satz zur Art
-            der Zusammenarbeit, Verfügbarkeit oder Sprachen.</p>
+
+        <div class="row">
+          <label for="cf-email" data-de="E-Mail" data-en="Email">E-Mail</label>
+          <input id="cf-email" name="email" type="email" required inputmode="email" autocomplete="email"
+            data-ph-de="dein@beispiel.de" data-ph-en="you@example.com" placeholder="dein@beispiel.de">
         </div>
-      </div>
+
+        <div class="row">
+          <label for="cf-message" data-de="Nachricht" data-en="Message">Nachricht</label>
+          <textarea id="cf-message" name="message" rows="6" required data-ph-de="Wie kann ich helfen?"
+            data-ph-en="How can I help?" placeholder="Wie kann ich helfen?"></textarea>
+        </div>
+
+        <!-- Honeypot (Anti-Spam) -->
+        <label class="hp" aria-hidden="true">Do not fill
+          <input type="text" name="company" tabindex="-1" autocomplete="off">
+        </label>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">
+            <span data-de="Senden" data-en="Send">Senden</span>
+          </button>
+          <a href="mailto:abigail.cozo@gmx.de" class="btn">
+            <span data-de="oder per E-Mail" data-en="or via email">oder per E-Mail</span>
+          </a>
+        </div>
+
+        <p id="form-status" class="status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
+
+
+
 
   <!-- ===== Footer ===== -->
   <footer>
     <div class="container"
       style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-      <span>© <span id="year"></span> <span data-de="Dein Name" data-en="Your Name">Dein Name</span></span>
-      <span data-de="Apple‑inspiriertes Design. Reines HTML & CSS."
-        data-en="Apple‑inspired design. Pure HTML & CSS.">Apple‑inspiriertes Design. Reines HTML & CSS.</span>
+      <span>© <span id="year"></span> <span data-de="Abigail Cozo" data-en="Abigail Cozo">Abigail Cozo</span></span>
+      <span data-de="Portfolio von Abigail Cozo" data-en="Portfolio of Abigail Cozo">Portfolio von Abigail Cozo</span>
     </div>
   </footer>
 

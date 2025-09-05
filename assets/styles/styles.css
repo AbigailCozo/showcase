@@ -21,7 +21,7 @@
       /* responsiver Weißraum */
     }
 
-    @font-face {
+   @font-face {
       font-family: "Lora";
       src: url("../Lora-VariableFont_wght.ttf");
     }
@@ -63,6 +63,14 @@
      
     }
 
+    #top,
+    #projekte,
+    #instagram,
+    #kenntnisse,
+    #cv,
+    #kontakt {
+      scroll-margin-top: 100px;
+    }
     /* ===== Header / Nav (Apple-like, transluzent) ===== */
     header {
       position: sticky;
@@ -260,6 +268,116 @@
       color: var(--ink-dim)
     }
 
+/* Kenntnisse */
+#kenntnisse .skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+/* Gruppen-Überschrift */
+#kenntnisse .skill-group h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+}
+
+/* Tag-Liste (Pills) */
+#kenntnisse .tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#kenntnisse .tags li {
+  padding: 8px 12px;
+  border: 1px solid #e3e3e3;
+  border-radius: 999px;
+  background-color: rgb(245, 245, 247); /* dezentes Hellgrau */
+  color: #111;                          /* gut lesbar auf hell */
+  font-size: 0.92rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Sprachliste */
+#kenntnisse .lang-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#kenntnisse .lang-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+}
+#kenntnisse .lang-list li:last-child {
+  border-bottom: none;
+}
+#kenntnisse .lang-list .level {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Kompakte Timeline innerhalb der Kenntnisse-Sektion (für Ehrenamt) */
+#kenntnisse .timeline {
+  border-left: 1px solid #e5e5e5;
+  padding-left: 12px;
+  margin-top: 6px;
+}
+#kenntnisse .timeline .entry { margin-bottom: 14px; }
+#kenntnisse .timeline .year {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 4px;
+}
+#kenntnisse .timeline .details h4 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+#kenntnisse .timeline .details p {
+  margin: 2px 0 0 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsiv */
+@media (max-width: 768px) {
+  #kenntnisse .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+/* Spaltensteuerung innerhalb #kenntnisse */
+#kenntnisse .skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  grid-auto-flow: row dense; /* füllt Lücken elegant auf */
+}
+#kenntnisse .skill-group.col-left { grid-column: 1; }
+#kenntnisse .skill-group.col-right { grid-column: 2; }
+
+/* Mobil: alles untereinander */
+@media (max-width: 768px) {
+  #kenntnisse .skill-group.col-left,
+  #kenntnisse .skill-group.col-right { grid-column: 1; }
+}
+/* Abstand über "Web & CMS" etwas reduzieren */
+#kenntnisse .skill-group.tight-top {
+  margin-top: -12px;   /* ggf. -8px oder -16px feinjustieren */
+}
+
+/* Mobil nicht quetschen */
+@media (max-width: 768px) {
+  #kenntnisse .skill-group.tight-top { margin-top: 0; }
+}
+
+
     /* ===== About ===== */
     .about {
       display: grid;
@@ -337,51 +455,81 @@
     }
 
     /* ===== Lebenslauf Timeline ===== */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      margin-top: 24px;
-      border-left: 2px solid var(--line);
-      padding-left: 24px;
-    }
+    .lebenslauf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
 
-    .entry {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      position: relative;
-    }
+.lebenslauf-grid h3 {
+  margin-bottom: 15px;
+}
 
-    .entry::before {
-      content: "";
-      position: absolute;
-      left: -32px;
-      top: 6px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
+.timeline {
+  border-left: 2px solid #ccc;
+  padding-left: 15px;
+}
 
-    .year {
-      font-weight: 600;
-      color: var(--ink-dim);
-    }
+.entry {
+  margin-bottom: 20px;
+}
 
-    .details h3 {
-      margin: 0;
-      font-size: 1.05rem;
-    }
+.year {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
 
-    .details p {
-      margin: 0;
-      color: var(--ink-dim);
-    }
+.details h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.details p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Nur im Lebenslauf-Bereich */
+#lebenslauf .section-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* 2 Spalten wie unten */
+  align-items: start;
+  text-align: left;
+  gap: 40px;                       /* optional: passend zu deiner Grid-Gap */
+  margin-bottom: 24px;
+}
+
+/* Überschrift und Untertitel beide in die linke Spalte */
+#lebenslauf .section-head h2,
+#lebenslauf .section-head .sub {
+  grid-column: 1;
+  margin: 0;
+}
+
+/* Mobile: wieder einspaltig */
+@media (max-width: 768px) {
+  #lebenslauf .section-head {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Subtitel im Lebenslauf in Schwarz */
+#lebenslauf .section-head p.sub {
+  color: #000;    /* Schwarz */
+  opacity: 1;     /* keine Transparenz */
+}
+
+/* Falls woanders noch etwas stärker überschreibt, nutze notfalls: */
+/* #lebenslauf .section-head p.sub { color: #000 !important; opacity: 1 !important; } */
+
+
 
     /* ===== Instagram (Apple-Look + Masonry) ===== */
     .insta-card {
-      background: #fff;
+      background: rgb(245, 245, 247);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow-1);
@@ -640,4 +788,71 @@ h1:has(.imsg-loud-soft.play){
 @media (max-width: 700px) {
   .link-card { grid-template-columns: 1fr; }
   .link-card .thumb { height: 160px; }
+}
+/* Kontaktformular (Apple-clean) */
+.contact-form .row{ display:flex; flex-direction:column; gap:8px; margin-bottom:14px }
+.contact-form label{ font-weight:600; font-size:.95rem; color:var(--ink) }
+.contact-form input,.contact-form textarea{
+  width:100%; border:1px solid var(--line); border-radius:14px;
+  padding:12px 14px; font:inherit; background:#fff; outline:0;
+  transition:border-color .2s, box-shadow .2s, background .2s;
+}
+.contact-form input::placeholder,.contact-form textarea::placeholder{ color:var(--ink-dim) }
+.contact-form input:focus,.contact-form textarea:focus{
+  border-color: color-mix(in oklab, var(--accent) 60%, var(--line));
+  box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
+}
+.contact-form .actions{ display:flex; align-items:center; gap:.5rem; margin-top:6px; flex-wrap:wrap }
+.contact-form .status{ margin-top:10px; color:var(--ink-dim); min-height:1em }
+
+/* Honeypot unsichtbar */
+.hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden }
+
+/* Grid bleibt 2-spaltig */
+#kenntnisse .skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;   /* Abstand zwischen den Spalten */
+  row-gap: 0;         /* Reihenabstand übernimmt links der Wrapper */
+}
+
+/* Linke Spalte: enger Stack */
+#kenntnisse .skills-col-left {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;      /* << Hier stellst du den kleineren Abstand ein */
+}
+
+/* Rechte Spalte bleibt Grid-Item in Spalte 2 */
+#kenntnisse .skill-group.col-right { grid-column: 2; }
+
+/* Mobil: einspaltig */
+@media (max-width: 768px) {
+  #kenntnisse .skills-grid { grid-template-columns: 1fr; }
+  #kenntnisse .skill-group.col-right { grid-column: 1; }
+}
+
+/* 2-Spalten-Grid, beide Spalten oben ausrichten */
+#kenntnisse .skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+  align-items: start;     /* top alignment */
+}
+
+/* Spalten-Wrapper mit identischem vertikalem Abstand */
+#kenntnisse .skills-col-left,
+#kenntnisse .skills-col-right {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;          /* -> hier stellst du den Abstand ein */
+}
+
+/* Rechte Spalte sicher in Spalte 2 */
+#kenntnisse .skills-col-right { grid-column: 2; }
+
+/* Mobil: alles untereinander */
+@media (max-width: 768px) {
+  #kenntnisse .skills-grid { grid-template-columns: 1fr; }
+  #kenntnisse .skills-col-right { grid-column: 1; }
 }
