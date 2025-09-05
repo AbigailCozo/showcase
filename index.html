@@ -1,11 +1,18 @@
 <!doctype html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Abigail Cozo – Portfolio</title>
-  <meta name="description" content="Helles, minimalistisch-apple-inspiriertes Portfolio mit eleganten Übergängen und Sprachumschaltung (DE/EN)." />
+  <meta name="description"
+    content="Helles, minimalistisch-apple-inspiriertes Portfolio mit eleganten Übergängen und Sprachumschaltung (DE/EN)." />
   <meta name="color-scheme" content="light only" />
+  <link rel="stylesheet" href="assets/styles/styles.css">
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script src="assets/scripts/scripts.js" defer></script>
+  <script src="assets/scripts/lang-switcher.js" defer></script>
+  <script type="module" src="assets/scripts/pdf-viewer.js"></script>
   <!--
     Apple‑inspiriertes Design:
     – viel Weißraum, fein abgestufte Grautöne (#f5f5f7, #e5e5ea)
@@ -13,179 +20,19 @@
     – sanfte Schatten, dezente Linien, runde Ecken
     – fließende Übergänge & Scroll-Reveal
   -->
-  <style>
-    :root{
-      --bg:#ffffff;           /* Hauptfläche: Weiß */
-      --bg-soft:#f5f5f7;      /* Apple-artiges helles Grau */
-      --ink:#0a0a0a;          /* Primärtext */
-      --ink-dim:#6e6e73;      /* Sekundärtext */
-      --line:#e5e5ea;         /* feine Trennlinien */
-      --accent:#0a84ff;       /* iOS Blau */
-      --radius:20px;          /* großzügige Rundung */
-      --shadow-1:0 1px 2px rgba(0,0,0,.05), 0 8px 24px rgba(0,0,0,.06);
-      --shadow-2:0 2px 8px rgba(0,0,0,.06), 0 16px 48px rgba(0,0,0,.08);
-      --maxw:1180px;          /* luftige Maximalbreite */
-      --space: clamp(16px, 2.2vw, 28px); /* responsiver Weißraum */
-    }
-
-    *,*::before,*::after{ box-sizing:border-box }
-    html{ scroll-behavior:smooth }
-    body{
-      margin:0; background:var(--bg); color:var(--ink);
-      font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-      line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    }
-    img{ max-width:100%; display:block }
-    a{ color:inherit; text-decoration:none }
-
-    .container{ width:100%; max-width:var(--maxw); margin-inline:auto; padding:0 var(--space) }
-
-    /* ===== Header / Nav (Apple-like, transluzent) ===== */
-    header{
-      position:sticky; top:0; z-index:40; backdrop-filter:saturate(140%) blur(10px);
-      background: color-mix(in oklab, white 80%, transparent);
-      border-bottom:1px solid var(--line);
-    }
-    .nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 0 }
-    .brand{ display:flex; align-items:center; gap:.65rem; letter-spacing:.2px; font-weight:600 }
-    .mark{ width:12px; height:12px; border-radius:50%; background:var(--ink) }
-    .menu{ display:flex; align-items:center; gap:1.2rem }
-    .menu a{ color:#2c2c2e }
-    .menu a:hover{ color:var(--accent) }
-    .lang-select{ padding:.35rem .6rem; border-radius:10px; border:1px solid var(--line); background:#fff }
-
-    /* ===== Hero ===== */
-    .hero{ background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%) }
-    .hero-inner{ display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; padding: 76px 0 52px }
-    .eyebrow{ color:var(--ink-dim); letter-spacing:.08em; text-transform:uppercase; font-size:.8rem }
-    h1{ font-size: clamp(2.2rem, 3.6vw + 1rem, 4rem); line-height:1.08; margin:.4rem 0 1rem; letter-spacing:-.02em }
-    .lede{ font-size: clamp(1.06rem, .6vw + .9rem, 1.22rem); color:var(--ink-dim); margin:0 0 1.4rem }
-    .cta{ display:flex; gap:.8rem; flex-wrap:wrap }
-    .btn{
-      display:inline-flex; align-items:center; gap:.55rem; padding:.75rem 1.05rem; border-radius:999px; border:1px solid var(--line);
-      background:#fff; box-shadow:var(--shadow-1); font-weight:600;
-      transition:transform .35s ease, box-shadow .35s ease, background-color .35s ease, opacity .35s ease;
-    }
-    .btn.primary{ background:var(--accent); color:#fff; border-color:transparent }
-    .btn:hover{ transform:translateY(-3px); box-shadow:var(--shadow-2) }
-
-    .device{ background:#fff; border:1px solid var(--line); border-radius:calc(var(--radius) + 6px); overflow:hidden; box-shadow:var(--shadow-2); aspect-ratio:5/3 }
-    .device img{ width:100%; height:100%; object-fit:cover }
-
-    /* ===== Sections ===== */
-    section{ padding: 68px 0; background:var(--bg) }
-    .section-head{ display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom: 18px }
-    h2{ font-size: clamp(1.6rem, 1.2vw + 1rem, 2.2rem); margin:0; letter-spacing:-.01em }
-    .sub{ color:var(--ink-dim); font-size:.98rem }
-
-    /* ===== Grid / Cards ===== */
-    .grid{ display:grid; gap:18px }
-    .cols-3{ grid-template-columns:repeat(3,1fr) }
-    .cols-2{ grid-template-columns:repeat(2,1fr) }
-    .card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-1); transition:transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s }
-    .card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-2) }
-    .card-body{ padding:18px }
-    .meta{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.4rem }
-    .tag{ border:1px solid var(--line); padding:.28rem .54rem; border-radius:999px; font-size:.85rem; color:var(--ink-dim) }
-
-    /* ===== About ===== */
-    .about{ display:grid; grid-template-columns:1.2fr .8fr; gap:24px }
-    .bubble{ background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--radius); padding:20px }
-
-    /* ===== Footer ===== */
-    footer{ padding: 44px 0 80px; color:var(--ink-dim); border-top:1px solid var(--line); background:#fff }
-
-    /* ===== Elegante Übergänge / Scroll-Reveal ===== */
-    .reveal{ opacity:0; transform:translateY(18px); will-change:transform,opacity; transition:opacity .7s ease, transform .7s ease }
-    .reveal.is-visible{ opacity:1; transform:none }
-
-    /* ===== Bewegungen reduzieren ===== */
-    @media (prefers-reduced-motion:reduce){
-      html{ scroll-behavior:auto }
-      .btn,.card,.reveal{ transition:none }
-      .reveal{ opacity:1; transform:none }
-    }
-
-    /* ===== Responsiv ===== */
-    @media (max-width: 980px){
-      .hero-inner{ grid-template-columns:1fr }
-      .about{ grid-template-columns:1fr }
-      .cols-3{ grid-template-columns:1fr 1fr }
-    }
-    @media (max-width: 640px){
-      .cols-3,.cols-2{ grid-template-columns:1fr }
-    }
-    /* ===== Lebenslauf Timeline ===== */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 24px;
-  border-left: 2px solid var(--line);
-  padding-left: 24px;
-}
-.entry {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  position: relative;
-}
-.entry::before {
-  content: "";
-  position: absolute;
-  left: -32px;
-  top: 6px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-.year {
-  font-weight: 600;
-  color: var(--ink-dim);
-}
-.details h3 {
-  margin: 0;
-  font-size: 1.05rem;
-}
-.details p {
-  margin: 0;
-  color: var(--ink-dim);
-}
-/* ===== Instagram (Apple-Look + Masonry) ===== */
-.insta-card{
-  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-  box-shadow:var(--shadow-1); padding:16px;
-}
-.masonry{ column-count: 3; column-gap: 12px; }
-.masonry-item{
-  display:block; break-inside: avoid; -webkit-column-break-inside: avoid;
-  margin-bottom: 12px; border-radius: 14px; overflow:hidden;
-  border:1px solid var(--line); box-shadow: var(--shadow-1); background:#fff;
-}
-/* Feinschliff für Instagram-Embeds */
-.ig-embed blockquote.instagram-media{
-  margin:0 !important; border:0 !important; box-shadow:none !important; background:#fff !important;
-  width:100% !important; max-width:none !important; min-width:0 !important;
-}
-.ig-embed iframe{ border-radius:14px !important; }
-
-@media (max-width: 980px){ .masonry{ column-count: 2 } }
-@media (max-width: 640px){ .masonry{ column-count: 1 } }
-
-  </style>
 </head>
+
 <body>
   <!-- ===== Header ===== -->
   <header>
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Startseite">
-        <span class="mark" aria-hidden="true"></span>
-        <span data-de="Abigail Cozo" data-en="Abigail Cozo">Dein Name</span>
+        <img src="assets/icons/logo_ae.svg" alt="logo" height="80" width="80" />
+        <span data-de="Through Abbys Eyes" data-en="Through Abbys Eyes">Seitenname</span>
       </a>
       <nav class="menu" aria-label="Hauptnavigation">
-        <a href="#projekte" data-de="Projekte" data-en="Projects">Projekte</a>
         <a href="#about" data-de="Über mich" data-en="About">Über mich</a>
+        <a href="#projekte" data-de="Projekte" data-en="Projects">Projekte</a>
         <a href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
         <select id="lang" class="lang-select" aria-label="Sprache wählen">
           <option value="de">Deutsch</option>
@@ -199,168 +46,259 @@
   <main id="top" class="hero">
     <div class="container hero-inner">
       <div>
-        <div class="eyebrow" data-de="Media:Conception & Produktion" data-en="Media:Conception & Production">Media Conception & Produktion</div>
-        <h1 data-de="Ästhetik in meinen Augen." data-en="Aesthetic through my eyes.">Schlicht. Hell. Klar.<br>Arbeiten mit Liebe zum Detail.</h1>
-        <p class="lede" data-de="Arbeiten mit cinematischem, elegantem und minimalistem Look" data-en="Works with cinematic, elegant and minimalistic look.">Ein reduziertes, Apple-inspiriertes Portfolio: viel Weißraum, feine Linien, sanfte Schatten und fließende Übergänge.</p>
+        <div class="eyebrow" data-de="Über mich" data-en="About me">Über mich</div>
+        <h1
+          data-de="<span class='imsg-loud-soft play'><span class='wave-emoji'>👋</span>Hi,</span> ich bin Abigail Cozo."
+          data-en="<span class='imsg-loud-soft play'><span class='wave-emoji'>👋</span>Hi,</span> I am Abigail Cozo."
+          <span class="imsg-loud-soft play"><span class="wave-emoji">👋</span>Hi,</span> ich bin Abigail Cozo.
+        </h1>
+
+        <p data-de="Ich bin Abigail Cozo, Studentin im Studiengang Media: Conception & Production (B.A.). Meine Leidenschaft gilt dem 
+                      cinematic Look – ich gestalte visuelles Storytelling, das filmisch wirkt, und begleite Projekte von der ersten Idee bis zum finalen Schnitt."
+          data-en="I’m Abigail Cozo, Media: Conception & Production student with a strong passion for the cinematic look. I design visual storytelling that feels 
+                    filmic and guide projects seamlessly from the first idea to the final cut.">
+          Ich bin Abigail Cozo, Studentin im Studiengang Media: Conception & Production (B.A.). Meine Leidenschaft gilt
+          dem cinematic Look – ich gestalte visuelles Storytelling, das filmisch wirkt,
+          und begleite Projekte von der ersten Idee bis zum finalen Schnitt.
+        </p>
         <div class="cta">
           <a class="btn primary" href="#projekte" data-de="Arbeiten ansehen" data-en="View work">Arbeiten ansehen</a>
           <a class="btn" href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
         </div>
       </div>
       <div class="device reveal" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1920&auto=format&fit=crop" alt="Hero Mockup"/>
+        <img src="assets/images/portrait.jpeg" alt="Portrait" />
       </div>
     </div>
   </main>
 
- <!-- ===== Projekte ===== -->
-<section id="projekte">
-  <div class="container">
-    <div class="section-head">
-      <h2 data-de="Ausgewählte Projekte" data-en="Selected Projects">Ausgewählte Projekte</h2>
-      <p class="sub" data-de="3–6 Highlights mit kurzer Beschreibung" data-en="3–6 highlights with a short description">
-        3–6 Highlights mit kurzer Beschreibung
-      </p>
-    </div>
+  <!-- ===== Projekte ===== -->
+  <section id="projekte">
+    <div class="container">
+      <div class="section-head">
+        <h2 data-de="Ausgewählte Projekte" data-en="Selected Projects">Ausgewählte Projekte</h2>
+        <p class="sub" data-de="3–6 Highlights mit kurzer Beschreibung"
+          data-en="3–6 highlights with a short description">
+          3–6 Highlights mit kurzer Beschreibung
+        </p>
+      </div>
 
-    <div class="grid cols-3">
-      <!-- Card 1 -->
-      <article class="card reveal">
-        <img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=1600&auto=format&fit=crop" alt="Projekt 1"/>
-        <div class="card-body">
-          <h3 data-de="Reflection Book" data-en="Reflection Book">Reflection Book</h3>
-          <p data-de="„Das Buch vereint die wichtigsten Projekte meines ersten Semesters – von Buchdesign und Creative Vita über fotografische Arbeiten und die Vorstellung einer Ausstellung bis hin zu Animation und Poetry Video.“"
-             data-en="The book brings together the key projects of my first semester – from book design and a creative vita to photography, an exhibition presentation, animation, and a poetry video.">
-            „Das Buch vereint die wichtigsten Projekte meines ersten Semesters – von Buchdesign und Creative Vita über fotografische Arbeiten und die Vorstellung einer Ausstellung bis hin zu Animation und Poetry Video.“
-          </p>
-          <div class="meta">
-            <span class="tag" data-de="Foto" data-en="Photo">Foto</span>
-            <span class="tag" data-de="Layout" data-en="Layout">Layout</span>
-            <span class="tag" data-de="Typografie" data-en="Typography">Typografie</span>
-            <span class="tag" data-de="Autorin" data-en="Author">Autorin</span>
+      <div class="grid cols-3">
+        <!-- Card: PDF-Viewer (einfach) -->
+        <article class="card reveal pdfjs-viewer" data-pdf-path="assets/misc/reflection_book.pdf" data-start-page="1">
+          <!-- optional: Startseite -->
+          <div class="card-body">
+            <h3 data-de="Reflection Book" data-en="Reflection Book">Reflection Book</h3>
+            <p data-de="Dieses Buch dokumentiert die Arbeiten meines ersten Semesters – von Buchdesign und Creative Vita über Fotografie und Ausstellungsvorstellung bis hin zu Animations- und Poetry-Video-Projekten."
+              data-en="This book documents my first-semester projects – from book design and creative vita to photography, exhibition presentation, animation, and a poetry video.">
+              Dieses Buch dokumentiert die Arbeiten meines ersten Semesters – von Buchdesign und Creative Vita über
+              Fotografie und Ausstellungsvorstellung bis hin zu Animations- und Poetry-Video-Projekten.
+            </p>
+            <div class="meta">
+              <span class="tag" data-de="Layout" data-en="Layout">Layout</span>
+              <span class="tag" data-de="Typografie" data-en="Typography">Typografie</span>
+              <span class="tag" data-de="Magazin" data-en="Magazine">Magazin</span>
+              <span class="tag" data-de="Editorial" data-en="Editorial">Editorial</span>
+            </div>
           </div>
-        </div>
-      </article>
 
-      <!-- Card 2: Kurzfilm -->
-      <article class="card reveal">
-        <div class="card-body">
-          <h3 data-de="Kurzfilmprojekt" data-en="Short Film Project">Kurzfilmprojekt</h3>
-          <p data-de="Ein experimenteller Kurzfilm, der Bildsprache und Sounddesign kombiniert. Hier als direkt eingebettetes Video verfügbar."
-             data-en="An experimental short film combining visual language and sound design. Embedded video below.">
-            Ein experimenteller Kurzfilm, der Bildsprache und Sounddesign kombiniert. Hier als direkt eingebettetes Video verfügbar.
-          </p>
-          <div class="meta">
-            <span class="tag" data-de="Kurzfilm" data-en="Short Film">Kurzfilm</span>
-            <span class="tag" data-de="Regie" data-en="Direction">Regie</span>
-            <span class="tag" data-de="Schnitt" data-en="Editing">Schnitt</span>
-            <span class="tag" data-de="Konzept" data-en="Concept">Konzept</span>
+          <div class="pdf-controls">
+            <button class="btn slim prev" type="button" aria-label="Zurück">◀︎ <span data-de="Zurück"
+                data-en="Prev">Zurück</span></button>
+            <div class="status">
+              <span class="page-label" data-de="Seite" data-en="Page">Seite</span>
+              <span class="page-num">1</span>
+              <span>/</span>
+              <span class="page-count">?</span>
+            </div>
+            <div class="zoom">
+              <button class="btn slim zoom-out" type="button" aria-label="Verkleinern">−</button>
+              <button class="btn slim zoom-reset" type="button" aria-label="Zoom zurücksetzen">100%</button>
+              <button class="btn slim zoom-in" type="button" aria-label="Vergrößern">+</button>
+            </div>
+            <button class="btn slim next" type="button" aria-label="Weiter"><span data-de="Weiter"
+                data-en="Next">Weiter</span> ▶︎</button>
           </div>
-        </div>
-        <video controls style="width:100%; border-radius:16px; margin: 0 0 18px 0;">
-          <source src="assets/videos/kurzfilm.mp4" type="video/mp4">
-          Dein Browser unterstützt das Video-Tag nicht.
-        </video>
-      </article>
 
-      <!-- Card 3 -->
-      <article class="card reveal">
-        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop" alt="Projekt 3"/>
-        <div class="card-body">
-          <h3 data-de="Webseiten" data-en="Websites">Webseiten</h3>
-          <p data-de="Webprojekte, an deren Entwicklung ich beteiligt war."
-             data-en="Website projects I contributed to.">
-            Webprojekte, an deren Entwicklung ich beteiligt war.
-          </p>
-          <div class="meta">
-            <span class="tag" data-de="Branding" data-en="Branding">Branding</span>
+          <div class="pdf-canvas-wrap">
+            <canvas class="pdf-canvas" aria-label="PDF-Seite"></canvas>
           </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+          <a href="assets/misc/reflection_book.pdf" download class="btn primary centered">
+            PDF-Download
+          </a>
 
 
-<!-- ===== Instagram ===== -->
-<section id="instagram">
-  <div class="container">
-    <div class="section-head">
-      <h2 data-de="Instagram" data-en="Instagram">Instagram</h2>
-      <p class="sub" data-de="Aktuelle Beiträge in einem Masonry-Grid"
-                     data-en="Recent posts in a masonry grid">
-        Aktuelle Beiträge in einem Masonry-Grid
-      </p>
-    </div>
+        </article>
 
-    <div class="insta-card reveal">
-      <div class="masonry" aria-live="polite">
 
-        <!-- Jede Kachel: sauberes Instagram-Embed ohne Inline-Styles -->
-        <div class="masonry-item ig-embed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/C62eA1vikET/"
-            data-instgrm-version="14"></blockquote>
-        </div>
+        <!-- Card 2: Kurzfilm -->
+        <article class="card reveal">
+          <div class="card-body">
+            <h3 data-de="Videoprojekte" data-en="Video Projects">Videoprojekte</h3>
+            <p data-de="In meinen Videoprojekten präsentiere ich unterschiedliche Herangehensweisen und Stile. Die Arbeiten reichen von kurzen filmischen Sequenzen bis zu animierten Formaten und zeigen die Vielfalt meiner gestalterischen Möglichkeiten."
+              data-en="In my video projects, I present a variety of approaches and styles. The works range from short filmic sequences to animated formats, reflecting the diversity of my creative possibilities.">
+              In meinen Videoprojekten präsentiere ich unterschiedliche Herangehensweisen und Stile. Die Arbeiten
+              reichen von kurzen filmischen Sequenzen bis zu animierten Formaten und zeigen die Vielfalt meiner
+              gestalterischen Möglichkeiten.
+            </p>
+            <div class="meta">
+              <span class="tag" data-de="Kurzfilm" data-en="Short Film">Kurzfilm</span>
+              <span class="tag" data-de="Regie" data-en="Direction">Regie</span>
+              <span class="tag" data-de="Schnitt" data-en="Editing">Schnitt</span>
+              <span class="tag" data-de="Konzept" data-en="Concept">Konzept</span>
+              <span class="tag" data-de="Animation" data-en="Animation">Animation</span>
+              <span class="tag" data-de="Blender" data-en="Blender">Blender</span>
+              <span class="tag" data-de="Ton" data-en="Sound">Ton</span>
+            </div>
+          </div>
 
-        <div class="masonry-item ig-embed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/C_2vDnMNzU8/"
-            data-instgrm-version="14"></blockquote>
-        </div>
+          <!-- YouTube Videos -->
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/vIECAVD2r_c" title="Kurzfilm 1" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
 
-        <div class="masonry-item ig-embed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DEnnZYfu1PU/"
-            data-instgrm-version="14"></blockquote>
-        </div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/TsfJ4fFyh7w" title="Kurzfilm 2" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
 
-        <div class="masonry-item ig-embed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DNc2F60M8kM/"
-            data-instgrm-version="14"></blockquote>
-        </div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/zWqGyT1m7G0" title="Kurzfilm 3" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </article>
 
-        <div class="masonry-item ig-embed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DNdvjSkt5VA/"
-            data-instgrm-version="14"></blockquote>
-        </div>
 
-        <div class="masonry-item ig-embed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DNlma75thwM/"
-            data-instgrm-version="14"></blockquote>
-        </div>
+        <!-- Card 3 -->
+        <article class="card reveal">
+          <div class="card-body">
+            <h3 data-de="Webseiten" data-en="Websites">Webseiten</h3>
+            <p data-de="Die Webprojekte, an denen ich mitgearbeitet habe, verbinden Funktionalität mit Gestaltung. Sie zeigen, wie Konzepte in digitale Lösungen umgesetzt werden können, die sowohl klar strukturiert als auch visuell ansprechend sind."
+              data-en="The web projects I contributed to combine functionality with design. They demonstrate how concepts can be translated into digital solutions that are both well-structured and visually engaging.">
+              Die Webprojekte, an denen ich mitgearbeitet habe, verbinden Funktionalität mit Gestaltung. Sie zeigen, wie
+              Konzepte in digitale Lösungen umgesetzt werden können, die sowohl klar strukturiert als auch visuell
+              ansprechend sind.
+            </p>
+            <div class="meta">
+              <span class="tag" data-de="Branding" data-en="Branding">Branding</span>
+              <span class="tag" data-de="Webseiten" data-en="Websites">Webseiten</span>
+              <span class="tag" data-de="Wordpress" data-en="Wordpress">Wordpress</span>
+              <span class="tag" data-de="Corporate Identity" data-en="Corporate Identity">Corporate Identity</span>
+              <span class="tag" data-de="HTML" data-en="HTML">HTML</span>
+              <span class="tag" data-de="CSS" data-en="CSS">CSS</span>
+            </div>
 
-        <div class="masonry-item ig-embed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/reel/DN1Whk22nal/"
-            data-instgrm-version="14"></blockquote>
-        </div>
+            <!-- Link-Vorschau: Panda Energy Solutions -->
+            <a class="link-card" href="https://pandaenergysolutions.com/" target="_blank" rel="noopener">
+              <div>
+                <div class="meta-row">
+                  <img src="https://www.google.com/s2/favicons?sz=64&domain=pandaenergysolutions.com" alt="">
+                  <span>pandaenergysolutions.com</span>
+                </div>
+                <h4>Panda Energy – Solarenergie für eine unabhängige Zukunft</h4>
+                <p>Maßgeschneiderte Photovoltaik-Lösungen, präzise Installation und langlebige Technik für effiziente,
+                  zuverlässige Energie.</p>
+              </div>
+              <img class="thumb"
+                src="https://pandaenergysolutions.com/wp-content/uploads/elementor/thumbs/engineer-in-charge-of-solar-panel-installation-the-2025-01-08-10-17-45-utc-scaled-r054a1r7dqmzhl22nrn0mu1i4z6uv93s6oacn09dzo.jpg"
+                alt="Panda Energy Vorschaubild">
+            </a>
 
-        <div class="masonry-item ig-embed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DN6gT_YDFfQ/"
-            data-instgrm-version="14"></blockquote>
-        </div>
-
-        <div class="masonry-item ig-embed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DOGNDXgjKuw/"
-            data-instgrm-version="14"></blockquote>
-        </div>
-
-        <div class="masonry-item ig-embed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DOJvXv-gMHQ/"
-            data-instgrm-version="14"></blockquote>
-        </div>
+            <!-- Link-Vorschau: Qi Meridian -->
+            <a class="link-card" href="https://qi-meridian.com/" target="_blank" rel="noopener">
+              <div>
+                <div class="meta-row">
+                  <img src="https://www.google.com/s2/favicons?sz=64&domain=qi-meridian.com" alt="">
+                  <span>qi-meridian.com</span>
+                </div>
+                <h4>Qi Meridian Massagestudio – Neu in Wien</h4>
+                <p>Wohltuende Tuina-, Guasha- und Hot-Stone-Massagen entlang der Meridiane – für entspanntes,
+                  ganzheitliches Wohlbefinden.</p>
+              </div>
+              <img class="thumb"
+                src="https://qi-meridian.com/wp-content/uploads/2024/10/massage-2023-11-27-04-54-16-utc-scaled-500x650.jpg"
+                alt="Qi Meridian Vorschaubild">
+            </a>
+          </div>
+        </article>
 
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+
+  <!-- ===== Instagram ===== -->
+  <section id="instagram">
+    <div class="container">
+      <div class="section-head">
+        <h2 data-de="Instagram" data-en="Instagram">Instagram</h2>
+        <p class="sub" data-de="Aktuelle Beiträge in einem Masonry-Grid" data-en="Recent posts in a masonry grid">
+          Aktuelle Beiträge in einem Masonry-Grid
+        </p>
+      </div>
+
+      <div class="insta-card reveal">
+        <div class="masonry" aria-live="polite">
+
+          <!-- Jede Kachel: sauberes Instagram-Embed ohne Inline-Styles -->
+          <div class="masonry-item ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C62eA1vikET/"
+              data-instgrm-version="14"></blockquote>
+          </div>
+
+          <div class="masonry-item ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C_2vDnMNzU8/"
+              data-instgrm-version="14"></blockquote>
+          </div>
+
+          <div class="masonry-item ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DEnnZYfu1PU/"
+              data-instgrm-version="14"></blockquote>
+          </div>
+
+          <div class="masonry-item ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNc2F60M8kM/"
+              data-instgrm-version="14"></blockquote>
+          </div>
+
+          <div class="masonry-item ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNdvjSkt5VA/"
+              data-instgrm-version="14"></blockquote>
+          </div>
+
+          <div class="masonry-item ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNlma75thwM/"
+              data-instgrm-version="14"></blockquote>
+          </div>
+
+          <div class="masonry-item ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DN1Whk22nal/"
+              data-instgrm-version="14"></blockquote>
+          </div>
+
+          <div class="masonry-item ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DN6gT_YDFfQ/"
+              data-instgrm-version="14"></blockquote>
+          </div>
+
+          <div class="masonry-item ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOGNDXgjKuw/"
+              data-instgrm-version="14"></blockquote>
+          </div>
+
+          <div class="masonry-item ig-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOJvXv-gMHQ/"
+              data-instgrm-version="14"></blockquote>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
 
 
   <!-- ===== Über mich ===== -->
@@ -372,91 +310,101 @@
       </div>
       <div class="about">
         <div class="bubble reveal">
-          <p data-de="Hi, ich bin Abigail Cozo und studiere Media:Conception & Production (B.A.) an der Hochschule RheinMain. Ich gestalte klare Bildsprache und saubere Abläufe von Idee bis Post." data-en="Hi, I'm Abigail Cozo and I study Media:Conception & Production (B.A.) at the RheinMain University of Applied Sciences. I craft clear visual language and clean workflows from idea to post.">Hi, ich bin Dein Name – Media Conception & Production (HSRM). Ich gestalte klare Bildsprache und saubere Abläufe von Idee bis Post.</p>
-          <p data-de="Fokus: Kurzfilm, Brand Content, Musik & Event. Offen für Kollabs in Frankfurt/Rhein‑Main & remote." data-en="Focus: short film, brand content, music & events. Open to collaborations in Frankfurt/Rhine‑Main & remote.">Fokus: Kurzfilm, Brand Content, Musik & Event. Offen für Kollabs in Frankfurt/Rhein‑Main & remote.</p>
+          <p data-de="Ich bin Abigail Cozo, Studentin im Studiengang Media: Conception & Production (B.A.). Meine Leidenschaft gilt dem 
+                      cinematic Look – ich gestalte visuelles Storytelling, das filmisch wirkt, und begleite Projekte von der ersten Idee bis zum finalen Schnitt."
+            data-en="I’m Abigail Cozo, Media: Conception & Production student with a strong passion for the cinematic look. I design visual storytelling that feels 
+                    filmic and guide projects seamlessly from the first idea to the final cut.">
+            Ich bin Abigail Cozo, Studentin im Studiengang Media: Conception & Production (B.A.). Meine Leidenschaft
+            gilt dem cinematic Look – ich gestalte visuelles Storytelling, das filmisch wirkt,
+            und begleite Projekte von der ersten Idee bis zum finalen Schnitt.
+          </p>
+          <p data-de="Fokus: Kurzfilm, Brand Content, Musik & Event. Offen für Kollabs in Frankfurt/Rhein‑Main & remote."
+            data-en="Focus: short film, brand content, music & events. Open to collaborations in Frankfurt/Rhine‑Main & remote.">
+            Fokus: Kurzfilm, Brand Content, Musik & Event. Offen für Kollabs in Frankfurt/Rhein‑Main & remote.</p>
         </div>
         <div class="bubble reveal">
           <ul style="margin:0; padding-left:18px">
             <li data-de="Konzeptentwicklung" data-en="Concept Development">Konzeptentwicklung</li>
             <li data-de="Regie & Kamera" data-en="Direction & Camera">Regie & Kamera</li>
             <li data-de="Schnitt & Color" data-en="Editing & Color">Schnitt & Color</li>
-            <li data-de="DaVinci Resolve, Premiere Pro, After Effects" data-en="DaVinci Resolve, Premiere Pro, After Effects">DaVinci Resolve, Premiere Pro, After Effects</li>
+            <li data-de="DaVinci Resolve, Premiere Pro, After Effects"
+              data-en="DaVinci Resolve, Premiere Pro, After Effects">DaVinci Resolve, Premiere Pro, After Effects</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
-<section id="lebenslauf">
-  <div class="container">
-    <div class="section-head">
-      <h2 data-de="Lebenslauf" data-en="Curriculum Vitae">Lebenslauf</h2>
-      <p class="sub" data-de="Ein Überblick über meine Ausbildung und Erfahrung"
-                     data-en="An overview of my education and experience">
-        Ein Überblick über meine Ausbildung und Erfahrung
-      </p>
-    </div>
-
-    <div class="timeline">
-      <!-- Beispiel-Einträge -->
-      <div class="entry reveal">
-        <div class="year">2023 – heute</div>
-        <div class="details">
-          <h3 data-de="Studium Media Conception & Production"
-              data-en="Media Conception & Production Studies">
-            Studium Media Conception & Production
-          </h3>
-          <p data-de="Hochschule RheinMain, Wiesbaden"
-             data-en="University of Applied Sciences, Wiesbaden">
-            Hochschule RheinMain, Wiesbaden
-          </p>
-        </div>
+  <section id="lebenslauf">
+    <div class="container">
+      <div class="section-head">
+        <h2 data-de="Lebenslauf" data-en="Curriculum Vitae">Lebenslauf</h2>
+        <p class="sub" data-de="Ein Überblick über meine Ausbildung und Erfahrung"
+          data-en="An overview of my education and experience">
+          Ein Überblick über meine Ausbildung und Erfahrung
+        </p>
       </div>
 
-      <div class="entry reveal">
-        <div class="year">2021 – 2023</div>
-        <div class="details">
-          <h3 data-de="Werkstudentin in Medienproduktion"
-              data-en="Working Student in Media Production">
-            Werkstudentin in Medienproduktion
-          </h3>
-          <p data-de="Unternehmen XY, Frankfurt"
-             data-en="Company XY, Frankfurt">
-            Unternehmen XY, Frankfurt
-          </p>
+      <div class="timeline">
+        <!-- Beispiel-Einträge -->
+        <div class="entry reveal">
+          <div class="year">2023 – heute</div>
+          <div class="details">
+            <h3 data-de="Studium Media Conception & Production" data-en="Media Conception & Production Studies">
+              Studium Media Conception & Production
+            </h3>
+            <p data-de="Hochschule RheinMain, Wiesbaden" data-en="University of Applied Sciences, Wiesbaden">
+              Hochschule RheinMain, Wiesbaden
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div class="entry reveal">
-        <div class="year">2018 – 2021</div>
-        <div class="details">
-          <h3 data-de="Ausbildung / Praktische Erfahrung"
-              data-en="Training / Practical Experience">
-            Ausbildung / Praktische Erfahrung
-          </h3>
-          <p data-de="Filmprojekte, Regieassistenz, Eventproduktion"
-             data-en="Film projects, Assistant Director, Event Production">
-            Filmprojekte, Regieassistenz, Eventproduktion
-          </p>
+        <div class="entry reveal">
+          <div class="year">2021 – 2023</div>
+          <div class="details">
+            <h3 data-de="Werkstudentin in Medienproduktion" data-en="Working Student in Media Production">
+              Werkstudentin in Medienproduktion
+            </h3>
+            <p data-de="Unternehmen XY, Frankfurt" data-en="Company XY, Frankfurt">
+              Unternehmen XY, Frankfurt
+            </p>
+          </div>
+        </div>
+
+        <div class="entry reveal">
+          <div class="year">2018 – 2021</div>
+          <div class="details">
+            <h3 data-de="Ausbildung / Praktische Erfahrung" data-en="Training / Practical Experience">
+              Ausbildung / Praktische Erfahrung
+            </h3>
+            <p data-de="Filmprojekte, Regieassistenz, Eventproduktion"
+              data-en="Film projects, Assistant Director, Event Production">
+              Filmprojekte, Regieassistenz, Eventproduktion
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-</section>
+  </section>
 
   <!-- ===== Kontakt ===== -->
   <section id="kontakt">
     <div class="container">
       <div class="section-head">
         <h2 data-de="Kontakt" data-en="Contact">Kontakt</h2>
-        <p class="sub" data-de="Lass uns über dein Projekt sprechen" data-en="Let's talk about your project">Lass uns über dein Projekt sprechen</p>
+        <p class="sub" data-de="Lass uns über dein Projekt sprechen" data-en="Let's talk about your project">Lass uns
+          über dein Projekt sprechen</p>
       </div>
       <div class="grid cols-2">
         <div class="bubble reveal">
           <p><strong>Email:</strong> <a href="mailto:abigail.cozo@gmx.de">abigail.cozo@gmx.de</a></p>
-          <p><strong>Instagram:</strong> <a href="https://instagram.com/aebbys.eye/" target="_blank" rel="noopener">@aebbys.eye</a></p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/abigail-cozo/" target="_blank" rel="noopener">/in/abigail-cozo</a></p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/aebbys.eye/" target="_blank"
+              rel="noopener">@aebbys.eye</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/abigail-cozo/" target="_blank"
+              rel="noopener">/in/abigail-cozo</a></p>
         </div>
         <div class="bubble reveal">
-          <p data-de="Optional: kurzer Satz zur Art der Zusammenarbeit, Verfügbarkeit oder Sprachen." data-en="Optional: short note on collaboration, availability or languages.">Optional: kurzer Satz zur Art der Zusammenarbeit, Verfügbarkeit oder Sprachen.</p>
+          <p data-de="Optional: kurzer Satz zur Art der Zusammenarbeit, Verfügbarkeit oder Sprachen."
+            data-en="Optional: short note on collaboration, availability or languages.">Optional: kurzer Satz zur Art
+            der Zusammenarbeit, Verfügbarkeit oder Sprachen.</p>
         </div>
       </div>
     </div>
@@ -464,47 +412,14 @@
 
   <!-- ===== Footer ===== -->
   <footer>
-    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+    <div class="container"
+      style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
       <span>© <span id="year"></span> <span data-de="Dein Name" data-en="Your Name">Dein Name</span></span>
-      <span data-de="Apple‑inspiriertes Design. Reines HTML & CSS." data-en="Apple‑inspired design. Pure HTML & CSS.">Apple‑inspiriertes Design. Reines HTML & CSS.</span>
+      <span data-de="Apple‑inspiriertes Design. Reines HTML & CSS."
+        data-en="Apple‑inspired design. Pure HTML & CSS.">Apple‑inspiriertes Design. Reines HTML & CSS.</span>
     </div>
   </footer>
 
-  <script>
-    // Jahreszahl im Footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ===== Sprachumschaltung (DE/EN) – speichert Auswahl =====
-    const select = document.getElementById('lang');
-    const APPLY_LANG = (lang) => {
-      document.documentElement.lang = lang;
-      document.querySelectorAll('[data-de]').forEach(el => {
-        const text = el.getAttribute(`data-${lang}`);
-        if(text){
-          // support for \n line breaks in data attributes
-          el.innerHTML = text.replace(/\\n/g, '<br>');
-        }
-      });
-      localStorage.setItem('site-lang', lang);
-    };
-    // initial aus Storage oder Browser-Sprache (Fallback: de)
-    const stored = localStorage.getItem('site-lang');
-    const initial = stored || (navigator.language && navigator.language.startsWith('en') ? 'en' : 'de');
-    select.value = initial; APPLY_LANG(initial);
-    select.addEventListener('change', e => APPLY_LANG(e.target.value));
-
-    // ===== Scroll Reveal =====
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-  <script async src="https://www.instagram.com/embed.js"></script>
-
 </body>
+
 </html>
