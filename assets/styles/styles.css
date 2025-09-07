@@ -1,42 +1,23 @@
 :root {
   --bg: #ffffff;
-  /* Hauptfläche: Weiß */
   --bg-soft: #f5f5f7;
-  /* Apple-artiges helles Grau */
   --ink: #0a0a0a;
-  /* Primärtext */
   --ink-dim: #6e6e73;
-  /* Sekundärtext */
   --line: #e5e5ea;
-  /* feine Trennlinien */
   --accent: #0a84ff;
-  /* iOS Blau */
   --radius: 20px;
-  /* großzügige Rundung */
-  --shadow-1: 0 1px 2px rgba(0, 0, 0, .05), 0 8px 24px rgba(0, 0, 0, .06);
-  --shadow-2: 0 2px 8px rgba(0, 0, 0, .06), 0 16px 48px rgba(0, 0, 0, .08);
+  --shadow-1: 0 1px 2px rgba(0,0,0,.05), 0 8px 24px rgba(0,0,0,.06);
+  --shadow-2: 0 2px 8px rgba(0,0,0,.06), 0 16px 48px rgba(0,0,0,.08);
   --maxw: 1400px;
-  /* luftige Maximalbreite */
   --space: clamp(16px, 2.2vw, 28px);
-  /* responsiver Weißraum */
 }
 
-@font-face {
-  font-family: "Lora";
-  src: url("../Lora-VariableFont_wght.ttf");
-}
+@font-face { font-family: "Lora"; src: url("../Lora-VariableFont_wght.ttf"); }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box
-}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-html {
-  scroll-behavior: smooth
-}
-
-body {
+body{
   margin: 0;
   background: var(--bg);
   color: var(--ink);
@@ -46,34 +27,15 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-img {
-  max-width: 100%;
-  display: block
-}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
 
-a {
-  color: inherit;
-  text-decoration: none
-}
+.container{ width:100%; max-width:var(--maxw); margin-inline:auto; }
 
-.container {
-  width: 100%;
-  max-width: var(--maxw);
-  margin-inline: auto;
+#top, #projekte, #instagram, #kenntnisse, #cv, #kontakt{ scroll-margin-top: 100px; }
 
-}
-
-#top,
-#projekte,
-#instagram,
-#kenntnisse,
-#cv,
-#kontakt {
-  scroll-margin-top: 100px;
-}
-
-/* ===== Header / Nav (Apple-like, transluzent) ===== */
-header {
+/* ===== Header ===== */
+header{
   position: sticky;
   top: 0;
   z-index: 40;
@@ -81,972 +43,565 @@ header {
   background: color-mix(in oklab, white 80%, transparent);
   border-bottom: 1px solid var(--line);
 }
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 0
+.brand{
+  display:flex; align-items:center; gap:.65rem; letter-spacing:.2px; font-weight:600;
 }
+.menu{ display:flex; align-items:center; gap:1.2rem; }
+.menu a{ color:#2c2c2e; }
+.menu a:hover{ color:var(--accent); }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: .65rem;
-  letter-spacing: .2px;
-  font-weight: 600
-}
-
-.centered {
-  margin-left: auto;
-  margin-right: auto;
-  display: block !important;
-  /* macht den Link block-level */
-  width: fit-content;
-  /* Button passt sich dem Inhalt an */
-}
-
-.menu {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem
-}
-
-.menu a {
-  color: #2c2c2e
-}
-
-.menu a:hover {
-  color: var(--accent)
-}
-
-.lang-select {
-  padding: .35rem .6rem;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  background: #fff
+.lang-select{
+  padding:.35rem .6rem; border-radius:10px;
+  border:1px solid var(--line); background:#fff;
 }
 
 /* ===== Hero ===== */
-.hero {
-  background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%)
+.hero{ background: linear-gradient(180deg,#fff 0%, var(--bg-soft) 100%); }
+.hero-inner{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; padding:76px 0 52px;
 }
+.eyebrow{ color:var(--ink-dim); letter-spacing:.08em; text-transform:uppercase; font-size:.8rem; }
 
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 40px;
-  align-items: center;
-  padding: 76px 0 52px
-}
-
-.eyebrow {
-  color: var(--ink-dim);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-size: .8rem
-}
-
-h1 {
+h1{
   font-size: clamp(2.2rem, 3.6vw + 1rem, 4rem);
-  line-height: 1.08;
-  margin: .4rem 0 1rem;
-  letter-spacing: -.02em
+  line-height:1.08; margin:.4rem 0 1rem; letter-spacing:-.02em;
 }
 
-.cta {
-  display: flex;
-  gap: .8rem;
-  flex-wrap: wrap
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  padding: .75rem 1.05rem;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: #fff;
-  box-shadow: var(--shadow-1);
-  font-weight: 600;
+.cta{ display:flex; gap:.8rem; flex-wrap:wrap; }
+.btn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.75rem 1.05rem; border-radius:999px; border:1px solid var(--line);
+  background:#fff; box-shadow:var(--shadow-1); font-weight:600;
   transition: transform .35s ease, box-shadow .35s ease, background-color .35s ease, opacity .35s ease;
 }
+.btn.primary{ background:var(--accent); color:#fff; border-color:transparent; }
+.btn:hover{ transform: translateY(-3px); box-shadow:var(--shadow-2); }
 
-.btn.primary {
-  background: var(--accent);
-  color: #fff;
-  border-color: transparent
+.device{
+  background:#fff; border:1px solid var(--line); border-radius: calc(var(--radius) + 6px);
+  overflow:hidden; box-shadow:var(--shadow-2); aspect-ratio: 5/3;
 }
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-2)
-}
-
-.device {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: calc(var(--radius) + 6px);
-  overflow: hidden;
-  box-shadow: var(--shadow-2);
-  aspect-ratio: 5/3
-}
-
-.device img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover
-}
+.device img{ width:100%; height:100%; object-fit:cover; }
 
 /* ===== Sections ===== */
-section {
-  padding: 68px 0;
-  background: var(--bg)
+section{ padding:68px 0; background:var(--bg); }
+.section-head{
+  display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:18px;
 }
-
-.section-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 18px
-}
-
-h2 {
-  font-size: clamp(1.6rem, 1.2vw + 1rem, 2.2rem);
-  margin: 0;
-  letter-spacing: -.01em
-}
-
-.sub {
-  color: var(--ink-dim);
-  font-size: .98rem
-}
+h2{ font-size: clamp(1.6rem, 1.2vw + 1rem, 2.2rem); margin:0; letter-spacing:-.01em; }
+.sub{ color:var(--ink-dim); font-size:.98rem; }
 
 /* ===== Grid / Cards ===== */
-.grid {
-  display: grid;
-  gap: 18px
+.grid{ display:grid; gap:18px; }
+.cols-3{ grid-template-columns: repeat(3,1fr); }
+.cols-2{ grid-template-columns: repeat(2,1fr); }
+
+.card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  overflow:hidden; box-shadow:var(--shadow-1);
+  transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s;
+}
+.card:hover{ transform: translateY(-4px); box-shadow:var(--shadow-2); }
+.card-body{ padding:18px; }
+
+.meta{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.4rem; }
+.tag{
+  border:1px solid var(--line); padding:.28rem .54rem; border-radius:999px;
+  font-size:.85rem; color:var(--ink-dim);
 }
 
-.cols-3 {
-  grid-template-columns: repeat(3, 1fr)
+/* ===== Kenntnisse ===== */
+#kenntnisse .skills-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:32px;
+}
+#kenntnisse .skill-group h3{ margin:0 0 12px 0; font-size:1.1rem; }
+
+#kenntnisse .tags{
+  list-style:none; padding:0; margin:0;
+  display:flex; flex-wrap:wrap; gap:10px;
+}
+#kenntnisse .tags li{
+  padding:8px 12px; border:1px solid #e3e3e3; border-radius:999px;
+  background:rgb(245,245,247); color:#111; font-size:.92rem; line-height:1; white-space:nowrap;
 }
 
-.cols-2 {
-  grid-template-columns: repeat(2, 1fr)
+#kenntnisse .lang-list{ list-style:none; padding:0; margin:0; }
+#kenntnisse .lang-list li{
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  padding:8px 0; border-bottom:1px dashed #eee;
 }
+#kenntnisse .lang-list li:last-child{ border-bottom:none; }
+#kenntnisse .lang-list li > span:first-child{ flex:1 1 auto; min-width:0; }
+#kenntnisse .lang-list .level{ flex:0 0 auto; font-size:.9rem; color:#666; white-space:nowrap; text-align:right; }
 
-.card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-1);
-  transition: transform .45s cubic-bezier(.2, .7, .2, 1), box-shadow .45s
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-2)
-}
-
-.card-body {
-  padding: 18px
-}
-
-.meta {
-  display: flex;
-  gap: .6rem;
-  flex-wrap: wrap;
-  margin-top: .4rem
-}
-
-.tag {
-  border: 1px solid var(--line);
-  padding: .28rem .54rem;
-  border-radius: 999px;
-  font-size: .85rem;
-  color: var(--ink-dim)
-}
-
-/* Kenntnisse */
-#kenntnisse .skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-
-/* Gruppen-Überschrift */
-#kenntnisse .skill-group h3 {
-  margin: 0 0 12px 0;
-  font-size: 1.1rem;
-}
-
-/* Tag-Liste (Pills) */
-#kenntnisse .tags {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-#kenntnisse .tags li {
-  padding: 8px 12px;
-  border: 1px solid #e3e3e3;
-  border-radius: 999px;
-  background-color: rgb(245, 245, 247);
-  /* dezentes Hellgrau */
-  color: #111;
-  /* gut lesbar auf hell */
-  font-size: 0.92rem;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-/* Sprachliste */
-#kenntnisse .lang-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#kenntnisse .lang-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 8px 0;
-  border-bottom: 1px dashed #eee;
-}
-
-#kenntnisse .lang-list li:last-child {
-  border-bottom: none;
-}
-
-#kenntnisse .lang-list .level {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Kompakte Timeline innerhalb der Kenntnisse-Sektion (für Ehrenamt) */
-#kenntnisse .timeline {
-  border-left: 1px solid #e5e5e5;
-  padding-left: 12px;
-  margin-top: 6px;
-}
-
-#kenntnisse .timeline .entry {
-  margin-bottom: 14px;
-}
-
-#kenntnisse .timeline .year {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 4px;
-}
-
-#kenntnisse .timeline .details h4 {
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-#kenntnisse .timeline .details p {
-  margin: 2px 0 0 0;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Responsiv */
-@media (max-width: 768px) {
-  #kenntnisse .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-/* Spaltensteuerung innerhalb #kenntnisse */
-#kenntnisse .skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  grid-auto-flow: row dense;
-  /* füllt Lücken elegant auf */
-}
-
-#kenntnisse .skill-group.col-left {
-  grid-column: 1;
-}
-
-#kenntnisse .skill-group.col-right {
-  grid-column: 2;
-}
-
-/* Mobil: alles untereinander */
-@media (max-width: 768px) {
-
-  #kenntnisse .skill-group.col-left,
-  #kenntnisse .skill-group.col-right {
-    grid-column: 1;
-  }
-}
-
-/* Abstand über "Web & CMS" etwas reduzieren */
-#kenntnisse .skill-group.tight-top {
-  margin-top: -12px;
-  /* ggf. -8px oder -16px feinjustieren */
-}
-
-/* Mobil nicht quetschen */
-@media (max-width: 768px) {
-  #kenntnisse .skill-group.tight-top {
-    margin-top: 0;
-  }
-}
-
+#kenntnisse .timeline{ border-left:1px solid #e5e5e5; padding-left:12px; margin-top:6px; }
+#kenntnisse .timeline .entry{ margin-bottom:14px; }
+#kenntnisse .timeline .year{ font-weight:600; font-size:.9rem; color:#555; margin-bottom:4px; }
+#kenntnisse .timeline .details h4{ margin:0; font-size:.95rem; }
+#kenntnisse .timeline .details p{ margin:2px 0 0 0; font-size:.9rem; color:#666; }
 
 /* ===== About ===== */
-.about {
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 24px
-}
+.about{ display:grid; grid-template-columns:1.2fr .8fr; gap:24px; }
 
-.bubble {
-  background: var(--bg-soft);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 20px
+.bubble{
+  background:var(--bg-soft); border:1px solid var(--line);
+  border-radius:var(--radius); padding:20px;
 }
 
 /* ===== Footer ===== */
-footer {
-  padding: 44px 0 80px;
-  color: var(--ink-dim);
-  border-top: 1px solid var(--line);
-  background: #fff
+footer{
+  padding:44px 0 80px; color:var(--ink-dim);
+  border-top:1px solid var(--line); background:#fff;
 }
 
-/* ===== Elegante Übergänge / Scroll-Reveal ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  will-change: transform, opacity;
-  transition: opacity .7s ease, transform .7s ease
+/* ===== Scroll-Reveal ===== */
+.reveal{ opacity:0; transform: translateY(18px); will-change: transform, opacity; transition: opacity .7s, transform .7s; }
+.reveal.is-visible{ opacity:1; transform:none; }
+
+/* ===== Reduce Motion ===== */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .btn, .card, .reveal{ transition:none; }
+  .reveal{ opacity:1; transform:none; }
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: none
+/* ===== Tablet/Desktop Breakpoints ===== */
+@media (max-width:980px){
+  .hero-inner{ grid-template-columns:1fr; }
+  .about{ grid-template-columns:1fr; }
+  .cols-3{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:640px){
+  .cols-3, .cols-2{ grid-template-columns:1fr; }
 }
 
-/* ===== Bewegungen reduzieren ===== */
-@media (prefers-reduced-motion:reduce) {
-  html {
-    scroll-behavior: auto
-  }
-
-  .btn,
-  .card,
-  .reveal {
-    transition: none
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none
-  }
+/* ===== Lebenslauf ===== */
+.lebenslauf-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:40px;
 }
+.lebenslauf-grid h3{ margin-bottom:15px; }
 
-/* ===== Responsiv ===== */
-@media (max-width: 980px) {
-  .hero-inner {
-    grid-template-columns: 1fr
-  }
-
-  .about {
-    grid-template-columns: 1fr
-  }
-
-  .cols-3 {
-    grid-template-columns: 1fr 1fr
-  }
-}
-
-@media (max-width: 640px) {
-
-  .cols-3,
-  .cols-2 {
-    grid-template-columns: 1fr
-  }
-}
-
-/* ===== Lebenslauf Timeline ===== */
-.lebenslauf-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.lebenslauf-grid h3 {
-  margin-bottom: 15px;
-}
-
-.timeline {
-  border-left: 2px solid #ccc;
-  padding-left: 15px;
-}
-
-.entry {
-  margin-bottom: 20px;
-}
-
-.year {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
-}
-
-.details h4 {
-  margin: 0;
-  font-size: 1rem;
-}
-
-.details p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #666;
-}
+.timeline{ border-left:2px solid #ccc; padding-left:15px; }
+.entry{ margin-bottom:20px; }
+.year{ font-weight:bold; margin-bottom:5px; color:#555; }
+.details h4{ margin:0; font-size:1rem; }
+.details p{ margin:0; font-size:.9rem; color:#666; }
 
 /* Nur im Lebenslauf-Bereich */
-#lebenslauf .section-head {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* 2 Spalten wie unten */
-  align-items: start;
-  text-align: left;
-  gap: 40px;
-  /* optional: passend zu deiner Grid-Gap */
-  margin-bottom: 24px;
+#lebenslauf .section-head{
+  display:grid; grid-template-columns:1fr 1fr; align-items:start; text-align:left; gap:40px; margin-bottom:24px;
 }
-
-/* Überschrift und Untertitel beide in die linke Spalte */
 #lebenslauf .section-head h2,
-#lebenslauf .section-head .sub {
-  grid-column: 1;
-  margin: 0;
+#lebenslauf .section-head .sub{ grid-column:1; margin:0; }
+
+/* ===== Instagram (Masonry) ===== */
+.insta-card{
+  background: rgb(245,245,247); border:1px solid var(--line);
+  border-radius:var(--radius); box-shadow:var(--shadow-1); padding:16px;
 }
-
-/* Mobile: wieder einspaltig */
-@media (max-width: 768px) {
-  #lebenslauf .section-head {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+.masonry{ column-count:3; column-gap:12px; }
+.masonry-item{
+  display:block; break-inside:avoid; -webkit-column-break-inside:avoid;
+  margin-bottom:12px; border-radius:14px; overflow:hidden; border:1px solid var(--line);
+  box-shadow:var(--shadow-1); background:#fff;
 }
-
-/* Subtitel im Lebenslauf in Schwarz */
-#lebenslauf .section-head p.sub {
-  color: #000;
-  /* Schwarz */
-  opacity: 1;
-  /* keine Transparenz */
+/* Embeds glätten */
+.ig-embed blockquote.instagram-media{
+  margin:0 !important; border:0 !important; box-shadow:none !important; background:#fff !important;
+  width:100% !important; max-width:none !important; min-width:0 !important;
 }
+.ig-embed iframe{ border-radius:14px !important; }
 
-/* Falls woanders noch etwas stärker überschreibt, nutze notfalls: */
-/* #lebenslauf .section-head p.sub { color: #000 !important; opacity: 1 !important; } */
+@media (max-width:980px){ .masonry{ column-count:2; } }
+@media (max-width:640px){ .masonry{ column-count:1; } }
 
-
-
-/* ===== Instagram (Apple-Look + Masonry) ===== */
-.insta-card {
-  background: rgb(245, 245, 247);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-1);
-  padding: 16px;
+/* ===== PDF Viewer ===== */
+.pdf-controls{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0 18px 12px; flex-wrap:wrap;
 }
-
-.masonry {
-  column-count: 3;
-  column-gap: 12px;
+.btn.slim{
+  padding:.5rem .8rem; font-weight:600; border-radius:999px; border:1px solid var(--line);
+  background:#fff; box-shadow:var(--shadow-1);
 }
-
-.masonry-item {
-  display: block;
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  margin-bottom: 12px;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-1);
-  background: #fff;
+.pdf-canvas-wrap{ padding:0 18px 18px; }
+.pdf-canvas{
+  width:100%; height:auto; display:block; background:#fff; border:1px solid var(--line);
+  border-radius:16px; box-shadow:var(--shadow-1);
 }
-
-/* Feinschliff für Instagram-Embeds */
-.ig-embed blockquote.instagram-media {
-  margin: 0 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  background: #fff !important;
-  width: 100% !important;
-  max-width: none !important;
-  min-width: 0 !important;
-}
-
-.ig-embed iframe {
-  border-radius: 14px !important;
-}
-
-@media (max-width: 980px) {
-  .masonry {
-    column-count: 2
-  }
-}
-
-@media (max-width: 640px) {
-  .masonry {
-    column-count: 1
-  }
-}
-
-/* ===== Einfacher PDF-Viewer (Canvas) ===== */
-.pdf-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 0 18px 12px;
-  flex-wrap: wrap;
-}
-
-.btn.slim {
-  padding: .5rem .8rem;
-  font-weight: 600;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: #fff;
-  box-shadow: var(--shadow-1)
-}
-
-.pdf-canvas-wrap {
-  padding: 0 18px 18px;
-}
-
-.pdf-canvas {
-  width: 100%;
-  height: auto;
-  display: block;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  box-shadow: var(--shadow-1);
-}
-
-.pdf-controls .status {
-  color: var(--ink-dim);
-  display: flex;
-  align-items: center;
-  gap: .35rem
-}
-
-.pdf-controls .zoom {
-  display: flex;
-  align-items: center;
-  gap: 8px
-}
+.pdf-controls .status{ color:var(--ink-dim); display:flex; align-items:center; gap:.35rem; }
+.pdf-controls .zoom{ display:flex; align-items:center; gap:8px; }
 
 /* ===== YouTube Embeds ===== */
-.video-embed {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  /* 16:9 */
-  margin: 0 0 18px 0;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow-1);
+.video-embed{
+  position:relative; width:100%; padding-bottom:56.25%;
+  margin:0 0 18px 0; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-1);
+}
+.video-embed iframe{
+  position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:16px;
 }
 
-.video-embed iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 16px;
+/* ===== iMessage “Hi,” Effekt + Waving Emoji ===== */
+.imsg-loud-soft{ display:inline-block; transform-origin:left center; will-change:transform,filter,opacity; position:relative; }
+.imsg-loud-soft.play{ animation: imsgLoudSoftPop 5s cubic-bezier(.18,.7,.2,1) both; }
+.imsg-loud-soft.play::after{
+  content:""; position:absolute; left:50%; top:55%; width:8px; height:8px; transform:translate(-50%,-50%);
+  border:2px solid color-mix(in oklab, var(--ink) 18%, transparent); border-radius:50%; opacity:0; animation: imsgLoudSoftRipple 1.05s ease-out 80ms both;
+}
+@keyframes imsgLoudSoftPop{
+  0%{ transform:scale(.7); opacity:0; filter:blur(.2px) }
+  26%{ transform:scale(1.45) translateY(-1px); opacity:1 }
+  48%{ transform:scale(.96) translateY(0) }
+  72%{ transform:scale(1.04) }
+  100%{ transform:scale(1); filter:none }
+}
+@keyframes imsgLoudSoftRipple{
+  0%{ width:8px; height:8px; opacity:.22; border-width:2px }
+  60%{ width:80px; height:80px; opacity:.10 }
+  100%{ width:110px; height:110px; opacity:0; border-width:1px }
+}
+h1:has(.imsg-loud-soft.play){ animation: imsgLoudSoftShake 220ms cubic-bezier(.2,.8,.2,1) 120ms both; }
+@keyframes imsgLoudSoftShake{
+  0%{ transform:translateX(0) } 35%{ transform:translateX(-1.5px) } 70%{ transform:translateX(1px) } 100%{ transform:translateX(0) }
+}
+.wave-emoji{ position:absolute; left:-1.6em; top:0; opacity:0; transform-origin:70% 70%; pointer-events:none; }
+.imsg-loud-soft.play .wave-emoji{ animation: waveIn 3s ease-out both; }
+@keyframes waveIn{
+  0%{ opacity:0; transform:rotate(0deg) scale(.6) }
+  20%{ opacity:1; transform:rotate(0deg) scale(1) }
+  35%{ transform:rotate(18deg) }
+  50%{ transform:rotate(-12deg) }
+  65%{ transform:rotate(12deg) }
+  80%{ transform:rotate(-8deg) }
+  100%{ opacity:0; transform:rotate(0deg) scale(1) }
+}
+@media (prefers-reduced-motion: reduce){
+  .imsg-loud-soft.play, .imsg-loud-soft.play::after, h1:has(.imsg-loud-soft.play){ animation: none !important; }
+  .wave-emoji{ animation:none !important; opacity:1 !important; position:static; }
 }
 
-/* ===== iMessage "Loud but gentle" for "Hi," ===== */
-.imsg-loud-soft {
-  display: inline-block;
-  transform-origin: left center;
-  will-change: transform, filter, opacity;
-  position: relative;
+/* ===== Link-Card ===== */
+.link-card{
+  display:grid; grid-template-columns:1fr 160px; gap:16px; align-items:center;
+  background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px;
+  box-shadow:var(--shadow-1); margin-top:14px; color:inherit; transition: transform .25s, box-shadow .25s;
+}
+.link-card:hover{ transform: translateY(-2px); box-shadow:var(--shadow-2); }
+.link-card .meta-row{ display:flex; align-items:center; gap:8px; color:var(--ink-dim); font-size:.9rem; margin-bottom:4px; }
+.link-card .meta-row img{ width:16px; height:16px; border-radius:4px; }
+.link-card h4{ margin:.25rem 0 .35rem; font-size:1.05rem; letter-spacing:-.01em; }
+.link-card p{ margin:0; color:var(--ink-dim); font-size:.95rem; line-height:1.4; }
+.link-card .thumb{ width:100%; height:100%; border-radius:12px; object-fit:cover; background:#f5f5f7; }
+@media (max-width:700px){
+  .link-card{ grid-template-columns:1fr; }
+  .link-card .thumb{ height:160px; }
 }
 
-/* run only when .play is present */
-.imsg-loud-soft.play {
-  /* gentler timing: slightly longer, softer curve */
-  animation: imsgLoudSoftPop 5s cubic-bezier(.18, .7, .2, 1) both;
-  /*dauer vom hi*/
+/* ===== Kontakt mittig ===== */
+#kontakt .section-head{ justify-content:center; text-align:center; }
+#kontakt .contact-form{ max-width:720px; margin:0 auto; }
+#kontakt .contact-form .actions{ justify-content:center; }
+
+/* ===== GLOBALE FIXES ===== */
+/* Checkbox (Nav-Toggle) unsichtbar machen, damit kein Kästchen erscheint */
+.nav-toggle{
+  position:absolute !important;
+  left:-9999px !important;
+  width:1px !important; height:1px !important;
+  opacity:0 !important; pointer-events:none !important;
+  appearance:none !important; -webkit-appearance:none !important;
 }
 
-/* soft ripple ring */
-.imsg-loud-soft.play::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 55%;
-  width: 8px;
-  height: 8px;
-  transform: translate(-50%, -50%);
-  border: 2px solid color-mix(in oklab, var(--ink) 18%, transparent);
-  border-radius: 50%;
-  opacity: 0;
-  animation: imsgLoudSoftRipple 1.05s ease-out 80ms both;
-}
+/* =================================================================
+   MOBILE (≤768px) — NUR Burger im Header, keine FAB/Body-Klassen
+   ================================================================= */
+@media (max-width:768px){
+  /* generelle Sicherheit */
+  html, body{ overflow-x:hidden; }
+  .section, .container{ padding-left:1.25rem; padding-right:1.25rem; }
+  .grid{ grid-template-columns:1fr; }
+  .card{ max-width:92%; margin-inline:auto; }
 
-/* softer pop: smaller overshoot, slower settle */
-@keyframes imsgLoudSoftPop {
-  0% {
-    transform: scale(.7);
-    opacity: 0;
-    filter: blur(.2px)
+  /* Abschnittsüberschriften mittig */
+  #kenntnisse h2, #kenntnisse h3,
+  #cv h2, #cv h3,
+  #instagram h2, #instagram h3,
+  #projekte h2, #projekte h3{
+    text-align:center;
   }
 
-  26% {
-    transform: scale(1.45) translateY(-1px);
-    opacity: 1
+  /* Header: Brand links mit mittigem Text neben Logo */
+  .container.nav{ padding:.5rem .875rem; }
+  .brand{ gap:1rem; min-width:0; }
+  .brand img{ max-height:56px; height:auto; width:auto; }
+  .brand span{ flex:1 1 auto; min-width:0; text-align:center; overflow-wrap:anywhere; }
+
+  /* Burger sichtbar machen */
+  .burger{
+    display:block; position:relative; width:28px; height:22px; cursor:pointer; flex:0 0 auto;
   }
-
-  48% {
-    transform: scale(.96) translateY(0)
+  .burger span{
+    position:absolute; left:0; right:0; height:2px; background:#0a0a0a; transition:.25s ease;
   }
+  .burger span:nth-child(1){ top:4px; }
+  .burger span:nth-child(2){ top:10px; }
+  .burger span:nth-child(3){ top:16px; }
 
-  72% {
-    transform: scale(1.04)
+  /* Menü als Dropdown (Overlay unter dem Header) */
+  .menu{
+    position:absolute; left:.875rem; right:.875rem; top:calc(100% + .5rem);
+    display:none; flex-direction:column; align-items:stretch; gap:.5rem;
+    padding:1rem; border-radius:12px; background:#fff; border:1px solid #e5e5ea;
+    box-shadow:0 10px 30px rgba(0,0,0,.08); z-index:50;
   }
+  .menu a, .menu .lang-select{ width:100%; text-align:center; }
 
-  100% {
-    transform: scale(1);
-    filter: none
-  }
-}
+  /* Sichtbarkeit über Checkbox-Hack */
+  .nav-toggle:checked ~ .menu{ display:flex; }
 
-/* subtle ripple */
-@keyframes imsgLoudSoftRipple {
-  0% {
-    width: 8px;
-    height: 8px;
-    opacity: .22;
-    border-width: 2px
-  }
+  /* Burger-Animation zu „X“ */
+  .nav-toggle:checked + .burger span:nth-child(1){ transform:rotate(45deg); top:10px; }
+  .nav-toggle:checked + .burger span:nth-child(2){ opacity:0; }
+  .nav-toggle:checked + .burger span:nth-child(3){ transform:rotate(-45deg); top:10px; }
 
-  60% {
-    width: 80px;
-    height: 80px;
-    opacity: .10
-  }
+  /* Kenntnisse/Lebenslauf mobil: einspaltig und nichts abschneiden */
+  #kenntnisse .skills-grid{ grid-template-columns:1fr; gap:20px; }
+  #kenntnisse .tags li{ white-space:normal; word-break:break-word; overflow-wrap:anywhere; }
+  .lebenslauf-grid{ grid-template-columns:1fr; gap:20px; }
+  .timeline{ border-left:1px solid #ccc; padding-left:12px; }
 
-  100% {
-    width: 110px;
-    height: 110px;
-    opacity: 0;
-    border-width: 1px
-  }
-}
-
-/* very light shake on the whole H1 */
-h1:has(.imsg-loud-soft.play) {
-  animation: imsgLoudSoftShake 220ms cubic-bezier(.2, .8, .2, 1) 120ms both;
-}
-
-@keyframes imsgLoudSoftShake {
-  0% {
-    transform: translateX(0)
-  }
-
-  35% {
-    transform: translateX(-1.5px)
-  }
-
-  70% {
-    transform: translateX(1px)
-  }
-
-  100% {
-    transform: translateX(0)
+  /* Instagram-Embeds auf volle Breite */
+  #instagram{ text-align:center; }
+  .ig-embed blockquote.instagram-media,
+  .ig-embed blockquote.instagram-media iframe{
+    width:100% !important; min-width:0 !important; max-width:100% !important;
+    margin-left:auto !important; margin-right:auto !important; display:block !important;
   }
 }
+/* === OVERRIDES (alles zentriert, außer Header links) === */
 
-/* reduce motion accessibility */
-@media (prefers-reduced-motion: reduce) {
+/* 1) Alle Section-Titel zentrieren */
+.section-head{ justify-content:center; }
+.section-head h2,
+.section-head .sub{ text-align:center; }
 
-  .imsg-loud-soft.play,
-  .imsg-loud-soft.play::after,
-  h1:has(.imsg-loud-soft.play) {
-    animation: none !important
-  }
+/* Lebenslauf-Sektion auch zentriert */
+#lebenslauf .section-head{
+  display:flex;
+  justify-content:center;
+  align-items:end;
+  gap:1rem;
+  text-align:center;
 }
 
-/* ===== Waving emoji links von Hi (overlay) ===== */
-.wave-emoji {
-  position: absolute;
-  left: -1.6em;
-  /* Abstand nach links */
-  top: 0;
-  opacity: 0;
-  transform-origin: 70% 70%;
-  /* Gelenk wie Handgelenk */
-  pointer-events: none;
-  /* beeinflusst Layout nicht */
+/* 2) Header: Logo links + Abstand wie vorher, Text mittig neben Logo */
+.brand{ gap:.65rem; }
+.brand span{ text-align:center; }
+
+/* 3) Hero / Über mich */
+.hero-inner > div:first-child{ text-align:center; }
+.hero .cta{ justify-content:center; }
+
+/* 4) Kontakt auch zentriert */
+#kontakt .section-head{
+  justify-content:center !important;
+  text-align:center !important;
+}
+#kontakt .section-head h2,
+#kontakt .section-head .sub{ text-align:center !important; }
+#kontakt .contact-form{
+  max-width:720px;      /* angenehme Breite */
+  margin:0 auto;        /* zentriert */
+}
+#kontakt .contact-form .actions{
+  justify-content:center !important;
 }
 
-/* während des Loud-Soft Effekts sichtbar und winkend */
-.imsg-loud-soft.play .wave-emoji {
-  animation: waveIn 3s ease-out both;
-  /*dauer vom emoji*/
+/* 5) Mobile – Sicherheit */
+@media (max-width:768px){
+  .brand{ gap:.65rem; }
+  .brand span{ text-align:center; }
+  .hero .cta{ justify-content:center; }
+  #kontakt .contact-form{ margin:0 auto; }
 }
 
-/* Keyframes: sanft einblenden, wackeln, wieder verschwinden */
-@keyframes waveIn {
-  0% {
-    opacity: 0;
-    transform: rotate(0deg) scale(.6);
-  }
-
-  20% {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-  }
-
-  35% {
-    transform: rotate(18deg);
-  }
-
-  50% {
-    transform: rotate(-12deg);
-  }
-
-  65% {
-    transform: rotate(12deg);
-  }
-
-  80% {
-    transform: rotate(-8deg);
-  }
-
-  100% {
-    opacity: 0;
-    transform: rotate(0deg) scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wave-emoji {
-    animation: none !important;
-    opacity: 1 !important;
-    position: static;
-  }
-}
-
-.link-card {
+/* === Header: 3-Spalten-Layout === */
+.container.nav{
   display: grid;
-  grid-template-columns: 1fr 160px;
-  gap: 16px;
+  grid-template-columns: auto 1fr auto; /* Logo | Mitte | Burger/Menu */
   align-items: center;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: var(--shadow-1);
-  margin-top: 14px;
-  text-decoration: none;
-  color: inherit;
-  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-.link-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-2);
-}
-
-.link-card .meta-row {
+.brand{
+  grid-column: 1; /* links */
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: var(--ink-dim);
-  font-size: .9rem;
-  margin-bottom: 4px;
+  gap: .65rem;
 }
 
-.link-card .meta-row img {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
+.brand span{
+  grid-column: 2; /* mittig */
+  justify-self: center;
+  text-align: center;
+  font-weight: 600;
 }
 
-.link-card h4 {
-  margin: .25rem 0 .35rem;
-  font-size: 1.05rem;
-  letter-spacing: -.01em;
+.menu,
+.burger{
+  grid-column: 3; /* rechts */
 }
 
-.link-card p {
-  margin: 0;
-  color: var(--ink-dim);
-  font-size: .95rem;
-  line-height: 1.4;
+/* ===== Kontakt: Innenleben exakt wie vorher (links, volle Breite) ===== */
+
+/* Kopfbereich wieder wie Standard (nicht zentriert) */
+#kontakt .section-head{
+  justify-content: space-between !important;
+  text-align: left !important;
+}
+#kontakt .section-head h2,
+#kontakt .section-head .sub{
+  text-align: left !important;
 }
 
-.link-card .thumb {
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-  background: #f5f5f7;
+/* Formular-Wrapper: keine künstliche Max-Breite/Zentrierung */
+#kontakt .contact-form{
+  max-width: none !important;
+  margin: 0 !important;
+  text-align: left !important;
+  padding: 20px; /* entspricht deiner .bubble-Standardpolsterung */
 }
 
-@media (max-width: 700px) {
-  .link-card {
-    grid-template-columns: 1fr;
-  }
-
-  .link-card .thumb {
-    height: 160px;
-  }
+/* Reihen & Abstände wie im Original */
+#kontakt .contact-form .row{
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  margin-bottom: 14px !important;
 }
 
-/* Kontaktformular (Apple-clean) */
-.contact-form .row {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 14px
-}
-
-.contact-form label {
+/* Labels wieder links und ohne Center-Übernahme */
+#kontakt .contact-form label{
+  text-align: left !important;
   font-weight: 600;
   font-size: .95rem;
-  color: var(--ink)
+  color: var(--ink);
 }
 
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
+/* Felder: volle Breite, linksbündig, keine Center-Vererbung */
+#kontakt .contact-form input,
+#kontakt .contact-form textarea{
+  width: 100% !important;
+  text-align: left !important;
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 12px 14px;
   font: inherit;
   background: #fff;
   outline: 0;
-  transition: border-color .2s, box-shadow .2s, background .2s;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: var(--ink-dim)
+/* Placeholder wieder dezent grau */
+#kontakt .contact-form input::placeholder,
+#kontakt .contact-form textarea::placeholder{
+  color: var(--ink-dim);
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: color-mix(in oklab, var(--accent) 60%, var(--line));
-  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
-}
-
-.contact-form .actions {
-  display: flex;
+/* Buttons/Actions wieder links */
+#kontakt .contact-form .actions{
+  display: flex !important;
+  justify-content: flex-start !important;
   align-items: center;
   gap: .5rem;
+  flex-wrap: wrap;
   margin-top: 6px;
-  flex-wrap: wrap
 }
 
-.contact-form .status {
+/* Statuszeile wie vorher */
+#kontakt .contact-form .status{
   margin-top: 10px;
   color: var(--ink-dim);
-  min-height: 1em
+  min-height: 1em;
 }
 
-/* Honeypot unsichtbar */
-.hp {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden
-}
-
-/* Grid bleibt 2-spaltig */
-#kenntnisse .skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 32px;
-  /* Abstand zwischen den Spalten */
-  row-gap: 0;
-  /* Reihenabstand übernimmt links der Wrapper */
-}
-
-/* Linke Spalte: enger Stack */
-#kenntnisse .skills-col-left {
-  display: flex;
-  flex-direction: column;
-  row-gap: 16px;
-  /* << Hier stellst du den kleineren Abstand ein */
-}
-
-/* Rechte Spalte bleibt Grid-Item in Spalte 2 */
-#kenntnisse .skill-group.col-right {
-  grid-column: 2;
-}
-
-/* Mobil: einspaltig */
-@media (max-width: 768px) {
-  #kenntnisse .skills-grid {
-    grid-template-columns: 1fr;
+/* Mobil: nichts zentrieren, alles links lassen */
+@media (max-width:768px){
+  #kontakt .section-head{
+    justify-content: space-between !important;
+    text-align: left !important;
   }
-
-  #kenntnisse .skill-group.col-right {
-    grid-column: 1;
+  #kontakt .section-head h2,
+  #kontakt .section-head .sub{
+    text-align: left !important;
   }
+  #kontakt .contact-form{ margin: 0 !important; }
+  #kontakt .contact-form .actions{ justify-content: flex-start !important; }
 }
 
-/* 2-Spalten-Grid, beide Spalten oben ausrichten */
-#kenntnisse .skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 32px;
-  align-items: start;
-  /* top alignment */
+/* ===== Kontakt-Sektion komplett mittig ===== */
+#kontakt{
+  text-align: center;             /* alles innerhalb mittig */
 }
 
-/* Spalten-Wrapper mit identischem vertikalem Abstand */
-#kenntnisse .skills-col-left,
-#kenntnisse .skills-col-right {
-  display: flex;
-  flex-direction: column;
-  row-gap: 16px;
-  /* -> hier stellst du den Abstand ein */
+#kontakt .section-head{
+  justify-content: center !important;
+  text-align: center !important;
 }
 
-/* Rechte Spalte sicher in Spalte 2 */
-#kenntnisse .skills-col-right {
-  grid-column: 2;
+#kontakt .section-head h2,
+#kontakt .section-head .sub{
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Mobil: alles untereinander */
-@media (max-width: 768px) {
-  #kenntnisse .skills-grid {
-    grid-template-columns: 1fr;
-  }
+/* Formular zentrieren */
+#kontakt .contact-form{
+  max-width: 720px;   /* angenehme Breite */
+  margin: 0 auto;     /* mittig im Container */
+  text-align: center; /* Text mittig */
+}
 
-  #kenntnisse .skills-col-right {
-    grid-column: 1;
-  }
+/* Labels mittig über Feldern */
+#kontakt .contact-form label{
+  display: block;
+  text-align: center !important;
+  margin-bottom: 6px;
+}
+
+/* Felder mittig anzeigen */
+#kontakt .contact-form input,
+#kontakt .contact-form textarea{
+  text-align: center; /* Text im Feld auch mittig */
+  margin: 0 auto;
+}
+
+/* Buttons mittig */
+#kontakt .contact-form .actions{
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Statusmeldung mittig */
+#kontakt .contact-form .status{
+  text-align: center;
+}
+
+/* Falls irgendwo ein PDF-Button steht (wie bei Projekten),
+   hier auch mittig setzen */
+#kontakt a.btn,
+#kontakt button.btn,
+#kontakt .centered{
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+/* ===== Projekte: PDF-Button mittig setzen ===== */
+#projekte .btn.centered{
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  width: fit-content;   /* Button so breit wie Inhalt */
 }
