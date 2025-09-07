@@ -28,8 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Spam: Honeypot
-      if (form.company && form.company.value) return;
 
       const lang = document.documentElement.lang === 'en' ? 'en' : 'de';
       statusEl.textContent = lang === 'en' ? 'Sending…' : 'Sende…';
