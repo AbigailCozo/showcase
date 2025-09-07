@@ -548,12 +548,6 @@ h1:has(.imsg-loud-soft.play){ animation: imsgLoudSoftShake 220ms cubic-bezier(.2
   text-align: center !important;
 }
 
-#kontakt .section-head h2,
-#kontakt .section-head .sub{
-  text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 /* Formular zentrieren */
 #kontakt .contact-form{
@@ -604,4 +598,130 @@ h1:has(.imsg-loud-soft.play){ animation: imsgLoudSoftShake 220ms cubic-bezier(.2
   margin-right: auto !important;
   text-align: center !important;
   width: fit-content;   /* Button so breit wie Inhalt */
+}
+/* ===========================
+   Überschriften-Ausrichtung
+   Desktop: links | Mobile: zentriert
+   =========================== */
+
+/* Desktop (ab 769px): linksbündig */
+@media (min-width: 769px) {
+  .section-head {
+    justify-content: space-between !important;
+    text-align: left !important;
+  }
+  .section-head h2,
+  .section-head .sub {
+    text-align: left !important;
+  }
+
+  /* Falls irgendwo speziell zentriert wurde, hier neutralisieren */
+  #lebenslauf .section-head {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: end !important;
+    text-align: left !important;
+  }
+}
+
+/* Mobile (bis 768px): zentriert */
+@media (max-width: 768px) {
+  .section-head {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .section-head h2,
+  .section-head .sub {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* ===========================
+   Kontakt-Ausrichtung: 
+   Desktop links | Mobile zentriert
+   =========================== */
+
+/* Desktop (ab 769px): linksbündig */
+@media (min-width: 769px) {
+  #kontakt {
+    text-align: left !important;
+  }
+
+  #kontakt .section-head {
+    justify-content: space-between !important;
+    text-align: left !important;
+  }
+
+  #kontakt .section-head h2,
+  #kontakt .section-head .sub {
+    text-align: left !important;
+  }
+
+  #kontakt .contact-form {
+    max-width: none !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+
+  #kontakt .contact-form label {
+    text-align: left !important;
+  }
+
+  #kontakt .contact-form input,
+  #kontakt .contact-form textarea {
+    text-align: left !important;
+  }
+
+  #kontakt .contact-form .actions {
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  #kontakt .contact-form .status {
+    text-align: left !important;
+  }
+}
+
+/* Mobile (bis 768px): mittig */
+@media (max-width: 768px) {
+  #kontakt {
+    text-align: center !important;
+  }
+
+  #kontakt .section-head {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  #kontakt .section-head h2,
+  #kontakt .section-head .sub {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #kontakt .contact-form {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #kontakt .contact-form label {
+    text-align: center !important;
+  }
+
+  #kontakt .contact-form input,
+  #kontakt .contact-form textarea {
+    text-align: center;
+  }
+
+  #kontakt .contact-form .actions {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  #kontakt .contact-form .status {
+    text-align: center !important;
+  }
 }
