@@ -15,6 +15,9 @@
   <script src="assets/scripts/lang-switcher.js" defer></script>
   <script type="module" src="assets/scripts/pdf-viewer.js"></script>
   <script src="assets/scripts/email.js"></script>
+
+
+
   <!--
     Apple‑inspiriertes Design:
     – viel Weißraum, fein abgestufte Grautöne (#f5f5f7, #e5e5ea)
@@ -27,25 +30,34 @@
 <body>
   <!-- ===== Header ===== -->
   <header>
-    <div class="container nav">
-      <a class="brand" href="#" aria-label="Startseite">
-        <img src="assets/icons/logo_ae.svg" alt="logo" height="80" width="80" />
-        <span data-de="Through Abbys Eyes" data-en="Through Abbys Eyes">Seitenname</span>
-      </a>
-      <nav class="menu" aria-label="Hauptnavigation">
-        <a href="#top" data-de="Über mich" data-en="About">Über mich</a>
-        <a href="#projekte" data-de="Projekte" data-en="Projects">Projekte</a>
-        <a href="#instagram" data-de="Instagram" data-en="Instagram">Projekte</a>
-        <a href="#kenntnisse" data-de="Kenntnisse" data-en="Skills">Kenntnisse</a>
-        <a href="#cv" data-de="Lebenslauf" data-en="Curriculum Vitae">Lebenslauf</a>
-        <a href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
-        <select id="lang" class="lang-select" aria-label="Sprache wählen">
-          <option value="de">Deutsch</option>
-          <option value="en">English</option>
-        </select>
-      </nav>
-    </div>
-  </header>
+  <div class="container nav">
+    <a class="brand" href="#" aria-label="Startseite">
+      <img src="assets/icons/logo_ae.svg" alt="logo" height="80" width="80" />
+      <span data-de="Through Abbys Eyes" data-en="Through Abbys Eyes">Seitenname</span>
+    </a>
+
+    <!-- Einziger Toggle -->
+    <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Menü öffnen/schließen" />
+    <label for="nav-toggle" class="burger" role="button" aria-controls="main-menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav id="main-menu" class="menu" aria-label="Hauptnavigation">
+      <a href="#top" data-de="Über mich" data-en="About">Über mich</a>
+      <a href="#projekte" data-de="Projekte" data-en="Projects">Projekte</a>
+      <a href="#instagram" data-de="Instagram" data-en="Instagram">Instagram</a>
+      <a href="#kenntnisse" data-de="Kenntnisse" data-en="Skills">Kenntnisse</a>
+      <a href="#cv" data-de="Lebenslauf" data-en="Curriculum Vitae">Lebenslauf</a>
+      <a href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      <select id="lang" class="lang-select" aria-label="Sprache wählen">
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
+      </select>
+    </nav>
+  </div>
+</header>
+
+
 
   <!-- ===== Hero ===== -->
   <main id="top" class="hero">
@@ -603,6 +615,16 @@
       </form>
     </div>
   </section>
+
+
+<!-- Floating Burger Button (kein Scroll mehr) -->
+<button type="button"
+        class="fab-burger"
+        aria-controls="main-menu"
+        aria-expanded="false"
+        aria-label="Menü öffnen/schließen">
+  <span></span><span></span><span></span>
+</button>
 
 
 
