@@ -238,7 +238,9 @@ footer{
   position:relative; width:100%; padding-bottom:56.25%; align-items:center;
   margin:0 18px 0; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-1);
 }
-
+.video-embed iframe{
+  position:absolute; top:0; height:100%; width: 100%; border:0; border-radius:16px; padding: 0 18px 0;
+}
 /* ===== iMessage “Hi,” Effekt + Waving Emoji ===== */
 .imsg-loud-soft{ display:inline-block; transform-origin:left center; will-change:transform,filter,opacity; position:relative; }
 .imsg-loud-soft.play{ animation: imsgLoudSoftPop 5s cubic-bezier(.18,.7,.2,1) both; }
