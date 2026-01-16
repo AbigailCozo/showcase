@@ -235,7 +235,7 @@ footer{
 
 /* ===== YouTube Embeds ===== */
 .video-embed{
-  position:relative; width:100% - 32px; padding-bottom:56.25%;
+  position:relative; width: calc(100% - 32px); padding-bottom:56.25%;
   margin:0 18px 18px; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-1);
 }
 .video-embed iframe{
