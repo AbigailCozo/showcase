@@ -242,6 +242,10 @@ footer{
   position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:16px;
 }
 
+.player {
+  padding:0 18px 18px;
+}
+
 /* ===== iMessage “Hi,” Effekt + Waving Emoji ===== */
 .imsg-loud-soft{ display:inline-block; transform-origin:left center; will-change:transform,filter,opacity; position:relative; }
 .imsg-loud-soft.play{ animation: imsgLoudSoftPop 5s cubic-bezier(.18,.7,.2,1) both; }
