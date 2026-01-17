@@ -222,7 +222,7 @@ footer{
   width: 100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 18px;
 }
 .btn.slim{
-  padding:.5rem .8rem; font-weight:600; border-radius:999px; border:1px solid var(--line);
+  padding:.5rem .8rem; font-weight:500; border-radius:999px; border:1px solid var(--line);
   background:#fff; box-shadow:var(--shadow-1);
 }
 .pdf-canvas-wrap{ padding:0 18px 18px; }
@@ -230,8 +230,8 @@ footer{
   width:100%; height:auto; display:block; background:#fff; border:1px solid var(--line);
   border-radius:16px; box-shadow:var(--shadow-1);
 }
-.pdf-controls .status{ color:var(--ink-dim); display:flex; align-items:center; gap:.35rem; }
-.pdf-controls .zoom{ display:flex; align-items:center; gap:8px; }
+.pdf-controls .status{ color:var(--ink-dim); display:flex; align-items:center; gap:.2rem; }
+.pdf-controls .zoom{ display:flex; align-items:center; gap:4px; }
 
 /* ===== YouTube Embeds ===== */
 .video-embed{
