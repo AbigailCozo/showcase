@@ -210,7 +210,7 @@ footer{
 /* Embeds glätten */
 .ig-embed blockquote.instagram-media{
   margin:0 !important; border:0 !important; box-shadow:none !important; background:#fff !important;
-  width:100% !important; max-width:none !important; min-width:0 !important;
+  width:100% !important; max-width:none !important; min-width:0 !important; align: center;
 }
 .ig-embed iframe{ border-radius:14px !important; }
 
