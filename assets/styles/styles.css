@@ -205,12 +205,12 @@ footer{
 .masonry-item{
   display:block; break-inside:avoid; -webkit-column-break-inside:avoid;
   margin-bottom:12px; border-radius:14px; overflow:hidden; border:1px solid var(--line);
-  box-shadow:var(--shadow-1); background:#fff; width: 100%;
+  box-shadow:var(--shadow-1); background:#fff;
 }
 /* Embeds glätten */
 .ig-embed blockquote.instagram-media{
-  margin:0 !important; border:0 !important; box-shadow:none !important; background:#fff !important;
-  width:100% !important; max-width:none !important; min-width:0 !important; align: center;
+  margin:0 !important; border:0 !important; box-shadow:none !important; background:#fff !important; 
+  max-width:none !important; min-width:0 !important; align: center;
 }
 .ig-embed iframe{ border-radius:14px !important; }
 
