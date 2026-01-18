@@ -205,7 +205,7 @@ footer{
 .masonry-item{
   display:block; break-inside:avoid; -webkit-column-break-inside:avoid;
   margin-bottom:12px; border-radius:14px; overflow:hidden; border:1px solid var(--line);
-  box-shadow:var(--shadow-1); background:#fff;
+  box-shadow:var(--shadow-1); background:#fff; width: 100;
 }
 /* Embeds glätten */
 .ig-embed blockquote.instagram-media{
