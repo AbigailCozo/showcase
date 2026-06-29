@@ -1,10 +1,10 @@
  :root {
   --bg: #6B663A;
-  --bg-soft: #CCACA8;
+  --bg-soft: #706B3D;
   --ink: #0a0a0a;
   --ink-dim: #6e6e73;
   --line: #e5e5ea;
-  --accent: #0a84ff;
+  --accent: #CCACA8;
   --radius: 20px;
   --shadow-1: 0 1px 2px rgba(0,0,0,.05), 0 8px 24px rgba(0,0,0,.06);
   --shadow-2: 0 2px 8px rgba(0,0,0,.06), 0 16px 48px rgba(0,0,0,.08);
