@@ -1,10 +1,10 @@
  :root {
-  --bg: #6B663A;
-  --bg-soft: #706B3D;
-  --ink: #0a0a0a;
-  --ink-dim: #6e6e73;
+  --bg: #bfb9a3;
+  --bg-soft: #bfb9a3;
+  --ink: #102425;
+  --ink-dim: #0a0a0a;
   --line: #e5e5ea;
-  --accent: #CCACA8;
+  --accent: #102425;
   --radius: 20px;
   --shadow-1: 0 1px 2px rgba(0,0,0,.05), 0 8px 24px rgba(0,0,0,.06);
   --shadow-2: 0 2px 8px rgba(0,0,0,.06), 0 16px 48px rgba(0,0,0,.08);
@@ -79,11 +79,30 @@ h1{
 .btn.primary{ background:var(--accent); color:#fff; border-color:transparent; }
 .btn:hover{ transform: translateY(-3px); box-shadow:var(--shadow-2); }
 
-.device{
-  background:#fff; border:1px solid var(--line); border-radius: calc(var(--radius) + 6px);
-  overflow:hidden; box-shadow:var(--shadow-2); aspect-ratio: 5/3;
+.device {
+  background: #fff; 
+  border: 1px solid var(--line); 
+  border-radius: calc(var(--radius) + 6px);
+  overflow: hidden; 
+  box-shadow: var(--shadow-2); 
+  aspect-ratio: 5/3;
+  position: relative; 
 }
-.device img{ width:100%; height:100%; object-fit:cover; }
+
+.device img { 
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  opacity: 0; 
+  transition: opacity 0.8s ease-in-out; 
+}
+
+.device img.active {
+  opacity: 1;
+}
 
 /* ===== Sections ===== */
 section{ padding:68px 0; background:var(--bg); }
@@ -91,7 +110,7 @@ section{ padding:68px 0; background:var(--bg); }
   display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:18px;
 }
 h2{ font-size: clamp(1.6rem, 1.2vw + 1rem, 2.2rem); margin:0; letter-spacing:-.01em; }
-.sub{ color:var(--ink-dim); font-size:.98rem; }
+.sub{ color:#bfb9a3; font-size:.98rem; }
 
 /* ===== Grid / Cards ===== */
 .grid{ display:grid; gap:18px; }
@@ -99,17 +118,128 @@ h2{ font-size: clamp(1.6rem, 1.2vw + 1rem, 2.2rem); margin:0; letter-spacing:-.0
 .cols-2{ grid-template-columns: repeat(2,1fr); }
 
 .card{
-  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  background:#102425; border:1px solid var(--line); border-radius:var(--radius);
   overflow:hidden; box-shadow:var(--shadow-1);
   transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s;
 }
 .card:hover{ transform: translateY(-4px); box-shadow:var(--shadow-2); }
 .card-body{ padding:18px; }
+.card-body h3 {
+  color: #bfb9a3; /* Farbe für die Projekt-Titel */
+}
 
+.card-body p {
+  color: #e5e5ea; /* Ein sanftes Hellgrau für den Beschreibungstext (sieht edler aus) */
+}
 .meta{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.4rem; }
 .tag{
   border:1px solid var(--line); padding:.28rem .54rem; border-radius:999px;
-  font-size:.85rem; color:var(--ink-dim);
+  font-size:.85rem; color:#bfb9a3;
+}
+
+/* ===== Image Slider (Galerie) ===== */
+.slider-container {
+  position: relative;
+  /* Kein display: flex mehr, damit der Slider die vollen 100% Breite bekommt */
+  padding: 0 10px; /* Ein wenig Luft an den Seiten */
+}
+
+.image-slider {
+  display: flex;
+  align-items: center; /* Zentriert die Bilder, falls Hoch- und Querformat gemischt sind */
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 20px 0; /* Platz für den Hover-Schatten */
+  
+  /* Scrollbar verstecken */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  width: 100%; /* Slider nimmt jetzt den kompletten Platz ein */
+}
+
+.image-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-img {
+  /* Zwingt die Bilder auf exakt ein Drittel der Breite (für 3 Bilder) */
+  flex: 0 0 calc(33.333% - 12px);
+  max-width: calc(33.333% - 12px); /* <-- Das ist der magische Anker, der sie verkleinert! */
+  
+  height: auto; /* Behält dein originales Bildformat bei, ohne abzuschneiden */
+  max-height: 70vh; /* Schützt nur davor, dass Hochformate aus dem Bildschirm ragen */
+  
+  border: 8px solid #ffffff; 
+  box-sizing: border-box; 
+  border-radius: 16px; 
+  scroll-snap-align: start;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slider-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+/* Pfeile schweben jetzt ÜBER dem Slider und nehmen keinen Platz weg */
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1d1d1f;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.slide-arrow:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.05); /* translateY muss hier erhalten bleiben */
+}
+
+.prev-arrow {
+  left: -24px; /* Schwebt links leicht über dem Rand */
+}
+
+.next-arrow {
+  right: -24px; /* Schwebt rechts leicht über dem Rand */
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 992px) {
+  .slider-img {
+    /* Auf dem Tablet: 2 Bilder nebeneinander */
+    flex: 0 0 calc(50% - 8px); 
+    max-width: calc(50% - 8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-container {
+    padding: 0;
+  }
+  .slider-img {
+    /* Auf dem Handy: 1 Bild, aber man sieht, dass es rechts weitergeht */
+    flex: 0 0 calc(85% - 10px); 
+    max-width: calc(85% - 10px);
+  }
+  .slide-arrow {
+    display: none; /* Pfeile auf dem Smartphone verstecken (man wischt mit dem Finger) */
+  }
 }
 
 /* ===== Kenntnisse ===== */
@@ -426,30 +556,41 @@ h1:has(.imsg-loud-soft.play){ animation: imsgLoudSoftShake 220ms cubic-bezier(.2
   #kontakt .contact-form{ margin:0 auto; }
 }
 
-/* === Header: 3-Spalten-Layout === */
-.container.nav{
-  display: grid;
-  grid-template-columns: auto 1fr auto; /* Logo | Mitte | Burger/Menu */
+/* === Header: Alles in einer Zeile (Flexbox) === */
+.container.nav {
+  display: flex !important;
   align-items: center;
+  justify-content: space-between;
 }
 
-.brand{
-  grid-column: 1; /* links */
+.brand {
   display: flex;
   align-items: center;
-  gap: .65rem;
+  gap: 0.8rem; /* Abstand zwischen Logo und Text */
+  text-decoration: none;
 }
 
-.brand span{
-  grid-column: 2; /* mittig */
-  justify-self: center;
-  text-align: center;
+.brand span {
   font-weight: 600;
+  white-space: nowrap; /* Zwingt den Text, auf einer Zeile zu bleiben */
 }
 
-.menu,
-.burger{
-  grid-column: 3; /* rechts */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Verhindert, dass das Burger-Menü auf dem Desktop unsichtbar Platz wegnimmt */
+.burger {
+  display: none;
+}
+
+/* --- Das Burger-Menü erst bei mobilen Geräten wieder einblenden --- */
+@media (max-width: 768px) {
+  .burger {
+    display: block; 
+  }
 }
 
 /* ===== Kontakt: Innenleben exakt wie vorher (links, volle Breite) ===== */
