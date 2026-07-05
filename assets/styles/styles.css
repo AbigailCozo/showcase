@@ -363,6 +363,7 @@ footer{
 .pdf-controls .status{ color:#fff; display:flex; align-items:center; gap:.2rem; }
 .pdf-controls .zoom{ display:flex; align-items:center; gap:4px; }
 
+
 /* ===== YouTube Embeds ===== */
 .video-embed{
   position:relative; width: calc(100% - 32px); padding-bottom:56.25%;
