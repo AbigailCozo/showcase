@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })();
 
+    
     // ===== Galerie Image-Slider =====
     const slider = document.getElementById('imageSlider');
     const prevBtn = document.querySelector('.prev-arrow');
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    
     // ===== Hero Automatischer Image-Slider (Alle 3 Sekunden) =====
     const heroSlides = document.querySelectorAll('.device img');
     if (heroSlides.length > 0) {
