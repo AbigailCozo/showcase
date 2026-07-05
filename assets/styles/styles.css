@@ -481,14 +481,15 @@ h1:has(.imsg-loud-soft.play){ animation: imsgLoudSoftShake 220ms cubic-bezier(.2
   /* Menü als Dropdown (Overlay unter dem Header) */
   .menu{
     position:absolute; left:.875rem; right:.875rem; top:calc(100% + .5rem);
-    display:none; flex-direction:column; align-items:stretch; gap:.5rem;
+    display:none !important; /* <--- HIER: !important hinzugefügt, damit es standardmäßig zu bleibt */
+    flex-direction:column; align-items:stretch; gap:.5rem;
     padding:1rem; border-radius:12px; background:#fff; border:1px solid #e5e5ea;
     box-shadow:0 10px 30px rgba(0,0,0,.08); z-index:50;
   }
   .menu a, .menu .lang-select{ width:100%; text-align:center; }
 
   /* Sichtbarkeit über Checkbox-Hack */
-  .nav-toggle:checked ~ .menu{ display:flex; }
+  .nav-toggle:checked ~ .menu{ display:flex !important; } /* <--- HIER: !important hinzugefügt, damit es beim Klick sicher aufgeht */
 
   /* Burger-Animation zu „X“ */
   .nav-toggle:checked + .burger span:nth-child(1){ transform:rotate(45deg); top:10px; }
