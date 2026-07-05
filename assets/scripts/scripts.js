@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Jahreszahl im Footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // ===== Jahreszahl im Footer =====
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
 
     // ===== Scroll Reveal =====
     const observer = new IntersectionObserver(entries => {
@@ -37,4 +40,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })();
 
-});
+    // ===== Galerie Image-Slider =====
+    const slider = document.getElementById('imageSlider');
+    const prevBtn = document.querySelector('.prev-arrow');
+    const nextBtn = document.querySelector('.next-arrow');
+
+    if (slider && prevBtn && nextBtn) {
+        // Scrollt jeweils um die Breite von zwei Bildern (lässt sich anpassen)
+        const getScrollAmount = () => slider.clientWidth / 2; 
+
+        nextBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
+    }
+
+    // ===== Hero Automatischer Image-Slider (Alle 3 Sekunden) =====
+    const heroSlides = document.querySelectorAll('.device img');
+    if (heroSlides.length > 0) {
+        let currentHeroSlide = 0;
+        
+        setInterval(() => {
+            heroSlides[currentHeroSlide].classList.remove('active');
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            heroSlides[currentHeroSlide].classList.add('active');
+        }, 3000);
+    }
+
+}); // <-- Hier schließt sich der Haupt-Block von ganz oben
