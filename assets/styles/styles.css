@@ -360,7 +360,7 @@ footer{
   width:100%; height:auto; display:block; background:#fff; border:1px solid var(--line);
   border-radius:16px; box-shadow:var(--shadow-1);
 }
-.pdf-controls .status{ color:var(--ink-dim); display:flex; align-items:center; gap:.2rem; }
+.pdf-controls .status{ color:#fff; display:flex; align-items:center; gap:.2rem; }
 .pdf-controls .zoom{ display:flex; align-items:center; gap:4px; }
 
 /* ===== YouTube Embeds ===== */
