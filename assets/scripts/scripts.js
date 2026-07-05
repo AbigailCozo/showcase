@@ -72,4 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
+     // ===== Floating Burger Button manuell steuern =====
+    const fabBurger = document.querySelector('.fab-burger');
+    const navCheckbox = document.getElementById('nav-toggle');
+
+    if (fabBurger && navCheckbox) {
+        fabBurger.addEventListener('click', (e) => {
+            e.preventDefault(); // Verhindert, dass der Browser durcheinanderkommt
+            navCheckbox.checked = !navCheckbox.checked; // Setzt oder entfernt den Haken
+        });
+    }
+    
 }); // <-- Hier schließt sich der Haupt-Block von ganz oben
