@@ -867,3 +867,45 @@ h1:has(.imsg-loud-soft.play){ animation: imsgLoudSoftShake 220ms cubic-bezier(.2
     text-align: center !important;
   }
 }
+
+/* ===== Floating Action Button (FAB) ===== */
+
+/* 1. Auf dem Desktop radikal ausblenden */
+.fab-burger {
+  display: none !important; 
+}
+
+/* 2. Nur in der mobilen Ansicht einblenden */
+@media (max-width: 768px) {
+  .fab-burger {
+    display: flex !important; /* oder block, damit er sichtbar wird */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    
+    /* Position unten rechts festkleben */
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99; /* Bleibt immer im Vordergrund */
+    
+    /* Optik (Farbe und Form kannst du nach Belieben anpassen) */
+    width: 56px;
+    height: 56px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    box-shadow: var(--shadow-2);
+    cursor: pointer;
+  }
+
+  /* Die 3 kleinen Striche im Button */
+  .fab-burger span {
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+}
