@@ -18,13 +18,6 @@
 
 
 
-  <!--
-    Apple‑inspiriertes Design:
-    – viel Weißraum, fein abgestufte Grautöne (#f5f5f7, #e5e5ea)
-    – systemnahe Typo (-apple-system …)
-    – sanfte Schatten, dezente Linien, runde Ecken
-    – fließende Übergänge & Scroll-Reveal
-  -->
 </head>
 
 <body>
@@ -45,10 +38,16 @@
     <nav id="main-menu" class="menu" aria-label="Hauptnavigation">
       <a href="#top" data-de="Über mich" data-en="About">Über mich</a>
       <a href="#projekte" data-de="Projekte" data-en="Projects">Projekte</a>
-      <a href="#instagram" data-de="Instagram" data-en="Instagram">Instagram</a>
       <a href="#kenntnisse" data-de="Kenntnisse" data-en="Skills">Kenntnisse</a>
-      <a href="#cv" data-de="Lebenslauf" data-en="Curriculum Vitae">Lebenslauf</a>
+      <a href="#cv" data-de="Lebenslauf" data-en="CV">Lebenslauf</a>
       <a href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      <a href="https://www.instagram.com/aebbys.eye/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profil">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        </a>
       <select id="lang" class="lang-select" aria-label="Sprache wählen">
         <option value="de">Deutsch</option>
         <option value="en">English</option>
@@ -74,7 +73,7 @@
         visuelles Design und die Gestaltung fesselnder Medienerlebnisse.
         Bevor ich ins Medienfeld gewechselt bin, habe ich eine Ausbildung zur Industriekauffrau abgeschlossen, die mir ein solides Fundament in 
         Geschäftsprozessen und Teamarbeit vermittelt hat. Neben dem Studium widme ich mich gerne der Portraitfotografie und dem Tanzen. 📸"
-          data-en="I'm a media student at RheinMain University of Applied Sciences and passionate about storytelling, visual design, and creating 
+          data-en="I'm a media student at RheinMain University of Applied Sciences and passionate about cinematic storytelling, visual design, and creating 
           engaging media experiences.
           Before switching to media, I completed an apprenticeship as an Industrial Clerk, which gave me a solid foundation in business processes 
           and teamwork. Outside of university, I enjoy portrait photography and dancing. 📸">
@@ -87,12 +86,23 @@
           Portraitfotografie und dem Tanzen. 📸
         </p>
         <div class="cta">
-          <a class="btn primary" href="#projekte" data-de="Arbeiten ansehen" data-en="View work">Arbeiten ansehen</a>
+          <a class="btn primary" href="#projekte" data-de="Arbeiten ansehen" data-en="View projects">Arbeiten ansehen</a>
           <a class="btn" href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
+          <a href="https://www.instagram.com/aebbys.eye/" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            Instagram
+          </a>
         </div>
       </div>
-      <div class="device reveal" aria-hidden="true">
-        <img src="assets/images/portrait.jpeg" alt="Portrait" />
+      <div class="device">
+        <img src="assets/images/Portrait_01.jpeg" alt="Portrait 01" class="active">
+        <img src="assets/images/Portrait_02.jpeg" alt="Portrait 02">
+        <img src="assets/images/Portrait_03.jpeg" alt="Portrait 03">
+        <img src="assets/images/Portrait_04.jpeg" alt="Portrait 04">
       </div>
     </div>
   </main>
@@ -110,8 +120,8 @@
           <!-- optional: Startseite -->
           <div class="card-body">
             <h3 data-de="Reflection Book" data-en="Reflection Book">Reflection Book</h3>
-            <p data-de="Dieses Buch dokumentiert die Arbeiten meines ersten Semesters – von Buchdesign und Creative Vita über Fotografie und Ausstellungsvorstellung bis hin zu Animations- und Poetry-Video-Projekten."
-              data-en="This book documents my first-semester projects – from book design and creative vita to photography, exhibition presentation, animation, and a poetry video.">
+            <p data-de="Dieses Buch dokumentiert die Arbeiten meines ersten Semesters. Von Buchdesign und Creative Vita über Fotografie und Ausstellungsvorstellung bis hin zu Animations- und Poetry-Video-Projekten."
+              data-en="This book documents my first-semester projects. Everything from book design and Creative Vita to photography and exhibition presentations, all the way to animation and poetry video projects.">
               Dieses Buch dokumentiert die Arbeiten meines ersten Semesters – von Buchdesign und Creative Vita über
               Fotografie und Ausstellungsvorstellung bis hin zu Animations- und Poetry-Video-Projekten.
             </p>
@@ -252,78 +262,39 @@
   </section>
 
 
-  <!-- ===== Instagram ===== -->
+<!-- ===== Galerie (ehemals Instagram) ===== -->
   <section id="instagram">
     <div class="container">
       <div class="section-head">
-        <h2 data-de="Instagram" data-en="Instagram">Instagram</h2>
+        <h2 data-de="Galerie" data-en="Gallery">Galerie</h2>
       </div>
 
-      <div class="insta-card reveal">
-        <div class="masonry" aria-live="polite">
-
-          <!-- Jede Kachel: sauberes Instagram-Embed ohne Inline-Styles -->
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DTDusasDduk/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C_2vDnMNzU8/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DP57HqIjPGo/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNc2F60M8kM/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNdvjSkt5VA/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOlE57VjaWJ/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DAUXaJuigMV/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DEnnZYfu1PU/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOGNDXgjKuw/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOJvXv-gMHQ/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-          
-          <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DS0Fh5aDI_X/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-
-           <div class="masonry-item ig-embed">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DP0rGtpDB5m/"
-              data-instgrm-version="14"></blockquote>
-          </div>
-          
+      <div class="slider-container reveal">
+        <!-- Zurück-Button -->
+        <button class="slide-arrow prev-arrow" aria-label="Vorheriges Bild">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        
+        <!-- Bilder-Slider (4-5 Bilder auf Desktop sichtbar) -->
+        <div class="image-slider" id="imageSlider">
+          <img class="slider-img" src="assets/images/Slide 01.jpg" alt="Galerie Bild 1">
+          <img class="slider-img" src="assets/images/Slide 02.jpeg" alt="Galerie Bild 2">
+          <img class="slider-img" src="assets/images/Slide 03.jpeg" alt="Galerie Bild 3">
+          <img class="slider-img" src="assets/images/Slide 04.jpeg" alt="Galerie Bild 4">
+          <img class="slider-img" src="assets/images/Slide 05.jpeg" alt="Galerie Bild 5">
+          <img class="slider-img" src="assets/images/Slide 06.jpeg" alt="Galerie Bild 6">
+          <img class="slider-img" src="assets/images/Slide 07.jpeg" alt="Galerie Bild 7">
+          <img class="slider-img" src="assets/images/Slide 08.png" alt="Galerie Bild 8">
+          <img class="slider-img" src="assets/images/Slide 09.jpeg" alt="Galerie Bild 9">
+          <img class="slider-img" src="assets/images/Slide 10.jpeg" alt="Galerie Bild 10">
+          <img class="slider-img" src="assets/images/Slide 11.jpeg" alt="Galerie Bild 11">
+          <img class="slider-img" src="assets/images/Slide 12.jpeg" alt="Galerie Bild 12">
         </div>
+
+        <!-- Weiter-Button -->
+        <button class="slide-arrow next-arrow" aria-label="Nächstes Bild">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -352,6 +323,7 @@
               <li data-de="SAP" data-en="SAP">SAP</li>
               <li data-de="Veo3" data-en="Veo3">Veo3</li>
               <li data-de="KlingO1" data-en="KlingO1">KlingO1</li>
+              <li data-de="Adobe Firefly" data-en="Adobe Firefly">Adobe Firefly</li>
               <li data-de="Nano Banana" data-en="Nano Banana">Nano Banana</li>
             </ul>
           </div>
@@ -378,9 +350,8 @@
           <div class="skill-group reveal">
             <h3 data-de="Hobbys" data-en="Hobbies">Hobbys</h3>
             <ul class="tags">
-              <li data-de="Fotografie" data-en="Photography">Fotografie</li>
+              <li data-de="Portrait-Fotografie" data-en="Portrait Photography">Fotografie</li>
               <li data-de="Tanz" data-en="Dance">Tanz</li>
-              <li data-de="Musikinstrumente spielen" data-en="Playing musical instruments">Musikinstrumente spielen</li>
               <li data-de="Bücher lesen" data-en="Reading books">Bücher lesen</li>
             </ul>
           </div>
@@ -395,13 +366,7 @@
                 <span class="level" data-de="C2" data-en="C2">C2</span>
               </li>
               <li><span data-de="Englisch" data-en="English">Englisch</span>
-                <span class="level" data-de="B2" data-en="B2">B2</span>
-              </li>
-              <li><span data-de="Französisch" data-en="French">Französisch</span>
-                <span class="level" data-de="A1" data-en="A1">A1</span>
-              </li>
-              <li><span data-de="Chinesisch" data-en="Chinese">Chinesisch</span>
-                <span class="level" data-de="A1" data-en="A1">A1</span>
+                <span class="level" data-de="C1" data-en="C1">C1</span>
               </li>
             </ul>
           </div>
@@ -594,19 +559,19 @@
         <div class="row">
           <label for="cf-name" data-de="Name" data-en="Name">Name</label>
           <input id="cf-name" name="name" type="text" required data-ph-de="Dein Name" data-ph-en="Your name"
-            placeholder="Dein Name">
+            placeholder="Your name">
         </div>
 
         <div class="row">
           <label for="cf-email" data-de="E-Mail" data-en="Email">E-Mail</label>
           <input id="cf-email" name="email" type="email" required inputmode="email" autocomplete="email"
-            data-ph-de="dein@beispiel.de" data-ph-en="you@example.com" placeholder="dein@beispiel.de">
+            data-ph-de="dein@beispiel.de" data-ph-en="you@example.com" placeholder="your@example.com">
         </div>
 
         <div class="row">
           <label for="cf-message" data-de="Nachricht" data-en="Message">Nachricht</label>
           <textarea id="cf-message" name="message" rows="6" required data-ph-de="Wie kann ich helfen?"
-            data-ph-en="How can I help?" placeholder="Wie kann ich helfen?"></textarea>
+            data-ph-en="How can I help?" placeholder="How can I help?"></textarea>
         </div>
 
 
